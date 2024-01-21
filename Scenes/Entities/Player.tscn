@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgpano0xrnlds"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_8pqr6"]
+[ext_resource type="Texture2D" uid="uid://dljj4sssiorou" path="res://Assets/Editor/vael_client.png" id="2_np7ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8pqr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_np7ah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bismq")
