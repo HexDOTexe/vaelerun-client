@@ -47,6 +47,5 @@ func player_movement(delta):
 		velocity = movement_vector * stat_movement_speed_current
 	else:
 		velocity = movement_vector
-	print(str(velocity))
 	
 	move_and_slide()
