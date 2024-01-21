@@ -4,6 +4,8 @@ var network = ENetMultiplayerPeer.new()
 var ip = "127.0.0.1"
 var port = 9999
 
+var temp_name = "Player"
+
 func _ready():
 	pass
 
@@ -19,7 +21,7 @@ func connect_to_server():
 
 func connected_to_server():
 	print("Connected to server.")
-	sync_client_information.rpc_id(1, "Player", multiplayer.get_unique_id())
+	sync_client_information.rpc_id(1, temp_name, multiplayer.get_unique_id())
 
 func connection_failed():
 	print("Failed to connect.")

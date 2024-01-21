@@ -17,5 +17,13 @@ offset_left = 184.0
 offset_top = 25.0
 offset_right = 318.0
 offset_bottom = 63.0
+placeholder_text = "Player"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 118.0
+offset_top = 31.0
+offset_right = 165.0
+offset_bottom = 54.0
+text = "Name"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -7,7 +7,9 @@
 [node name="TextEdit" type="Label" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
-text = "MEOW MEOW MEOW"
+text = "MEOW MEOW MEOW
+
+WASD movement test"
 
 [node name="Player" parent="." instance=ExtResource("1_txhcn")]
 position = Vector2(267, 150)
