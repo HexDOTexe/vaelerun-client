@@ -23,4 +23,6 @@ func _on_connect_pressed():
 
 # Join button
 func _on_button_pressed():
+	self.visible = false
+	get_parent().get_node("World/Map").visible = true
 	pass

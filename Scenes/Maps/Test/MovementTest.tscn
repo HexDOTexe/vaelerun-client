@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bgpano0xrnlds" path="res://Scenes/Entities/Player.tscn" id="1_txhcn"]
 
-[node name="TestMap" type="Node2D"]
+[node name="Map" type="Node2D"]
 
 [node name="TextEdit" type="Label" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 449.0
+offset_top = 332.0
+offset_right = 618.0
+offset_bottom = 407.0
 text = "MEOW MEOW MEOW
 
 WASD movement test"
