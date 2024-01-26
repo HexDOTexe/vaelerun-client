@@ -47,6 +47,11 @@ func spawn_player_node(client_id : int, position):
 
 @rpc("authority", "call_remote", "reliable")
 func despawn_player_node(client_id : int):
+	# Added this timer for now, because the World State Buffer is having race problems with player despawns.
+	# Player gets despawned, then the buffer respawns them (buffer queue thinks they're still here)
+	# Probably needs a proper fix. But doesn't seem to cause issues? yet?
+	# Might also just go away when network latency > 0ms.
+	await get_tree().create_timer(0.5).timeout
 	get_node("../SceneManager/World").despawn_player(client_id)
 
 func send_player_state(player_state):
