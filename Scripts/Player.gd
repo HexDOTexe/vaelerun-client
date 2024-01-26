@@ -18,14 +18,19 @@ var stat_power_percent : int
 var stat_movement_speed_base : int
 var stat_movement_speed_walking : int
 var stat_movement_speed_current : int = 0
-var stat_movement_speed_maximum : int = 60
+var stat_movement_speed_maximum : int = 100
 var stat_movement_speed_acceleration : int = 240
 
 var client_character
 var movement_vector : Vector2
+var player_state
+
+func _ready():
+	set_physics_process(false)
 
 func _physics_process(delta):
 	player_movement(delta)
+	define_player_state()
 
 func _input(event):
 	#print(event.as_text())
@@ -39,7 +44,8 @@ func player_movement(delta):
 	if movement_vector == Vector2(0, 0):
 		stat_movement_speed_current = 0
 	else:
-		stat_movement_speed_current += stat_movement_speed_acceleration * delta
+		#stat_movement_speed_current += stat_movement_speed_acceleration * delta
+		stat_movement_speed_current = 100
 		if stat_movement_speed_current > stat_movement_speed_maximum:
 			stat_movement_speed_current = stat_movement_speed_maximum
 	
@@ -49,3 +55,11 @@ func player_movement(delta):
 		velocity = movement_vector
 	
 	move_and_slide()
+
+func activate_camera():
+	$Camera2D.enabled = true
+
+func define_player_state():
+	player_state = {"T": Time.get_unix_time_from_system(), "P": get_position()}
+	Server.send_player_state(player_state)
+	pass

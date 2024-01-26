@@ -1,24 +1,30 @@
 extends Node
 
+@onready var namebox = $LoginPanel/MarginContainer/VDIV/HDIV/NameBox
+@onready var connect = $LoginPanel/MarginContainer/VDIV/Connect
+@onready var join = $LoginPanel/MarginContainer/VDIV/Join
+@onready var message = $LoginPanel/MarginContainer/VDIV/MessageLabel
+
+
 func _physics_process(delta):
 	if Server.connection_status == 1:
-		$Connect.disabled = true
-		$MessageLabel.text = "Connected to server."
-		$Join.disabled = false
+		connect.disabled = true
+		message.text = "Connected to server."
+		join.disabled = false
 	else:
-		$MessageLabel.text = ""
-		$Join.disabled = true
+		message.text = ""
+		join.disabled = true
 
 func _on_text_edit_text_changed():
-	if $NameBox.text:
-		Server.temp_name = $NameBox.text
-		$Connect.disabled = false
+	if namebox.text:
+		Server.temp_name = namebox.text
+		connect.disabled = false
 	else:
-		$Connect.disabled = true
+		connect.disabled = true
 
 # Connect button
 func _on_connect_pressed():
-	$NameBox.editable = false
+	namebox.editable = false
 	Server.connect_to_server()
 
 # Join button

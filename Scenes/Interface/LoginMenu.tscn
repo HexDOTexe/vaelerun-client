@@ -9,6 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_rbbpd")
 
 [node name="LoginPanel" type="PanelContainer" parent="."]
@@ -18,30 +20,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -559.0
-offset_top = -307.0
-offset_right = -115.0
-offset_bottom = 5.0
+offset_left = -257.0
+offset_top = -149.0
+offset_right = 257.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
 layout_mode = 2
-offset_left = 59.0
-offset_top = 75.0
-offset_right = 106.0
-offset_bottom = 98.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VDIV" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HDIV" type="HBoxContainer" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Name"
+horizontal_alignment = 1
 
-[node name="NameBox" type="TextEdit" parent="."]
+[node name="NameBox" type="TextEdit" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
+custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
-offset_left = 159.0
-offset_top = 71.0
-offset_right = 347.0
-offset_bottom = 110.0
 size_flags_horizontal = 4
-size_flags_vertical = 4
 placeholder_text = "Player"
 context_menu_enabled = false
 shortcut_keys_enabled = false
@@ -54,35 +66,25 @@ caret_blink = true
 caret_move_on_right_click = false
 caret_multiple = false
 
-[node name="Join" type="Button" parent="."]
+[node name="Connect" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-offset_left = 167.0
-offset_top = 186.0
-offset_right = 317.0
-offset_bottom = 226.0
-size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+text = "Connect"
+
+[node name="Join" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "Join"
 
-[node name="Connect" type="Button" parent="."]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 134.0
-offset_right = 317.0
-offset_bottom = 174.0
-disabled = true
-text = "Connect"
-
-[node name="MessageLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 127.0
-offset_top = 241.0
-offset_right = 368.0
-offset_bottom = 299.0
+[node name="MessageLabel" type="Label" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="text_changed" from="NameBox" to="." method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="Join" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/Join" to="." method="_on_button_pressed"]
