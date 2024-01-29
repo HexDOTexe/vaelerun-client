@@ -5,8 +5,9 @@ var ip = "127.0.0.1"
 var port = 9999
 
 var temp_name = "Player"
-var connection_status = 0
 var local_client_id
+var connection_status = 0
+var connection_timer = 10.0
 
 #region Server Interface
 func _ready():
@@ -28,11 +29,17 @@ func connected_to_server():
 	sync_client_information.rpc_id(1, multiplayer.get_unique_id(), temp_name,)
 	connection_status = 1
 	local_client_id = multiplayer.get_unique_id()
-	print("Connected to server.")
 
 func connection_failed():
 	connection_status = 0
-	print("Failed to connect.")
+
+func timeout_monitor():
+	# (NYI) Starts a timer whenever communication with the server is lost.
+	# After 5s, pause the physics process to pause the game state & stop sending client updates to the server. 
+	# If no server update is received after 10s, disconnect the client and kick to the login menu.
+	while connection_status == 0:
+		await get_tree().create_timer(connection_timer).timeout
+		
 
 @rpc("any_peer","call_remote")
 func sync_client_information(_client_id, _player):
@@ -55,19 +62,18 @@ func despawn_player_node(client_id : int):
 	get_node("../SceneManager/World").despawn_player(client_id)
 
 func send_player_state(player_state):
-	#print(player_state)
 	receive_player_state.rpc_id(1, player_state)
-	pass
 
 @rpc("any_peer", "unreliable_ordered")
-func receive_player_state(player_state):
+func receive_player_state(_player_state):
 	pass
 
-func send_world_state(world_state):
+func send_world_state(_world_state):
 	pass
 
 @rpc("any_peer", "unreliable_ordered")
 func receive_world_state(world_state):
+	# World state packets currently contain the following elements:
+	# "T" - Timestamp // "P" - Position
 	get_node("../SceneManager/World").update_world_state(world_state)
-	pass
 #endregion

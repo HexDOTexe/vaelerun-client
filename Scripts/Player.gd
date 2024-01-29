@@ -32,7 +32,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	define_player_state()
 
-func _input(event):
+func _input(_event):
 	#print(event.as_text())
 	pass
 
