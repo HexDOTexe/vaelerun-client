@@ -9,9 +9,7 @@ var local_client_id
 
 var connection_status = 0
 var connection_timer = 10.0
-var local_time = Time.get_unix_time_from_system()
-var client_clock = 0.0
-var clock_rounding_correction : float = 0
+var adjusted_clock = 0.0
 var latency = 0
 var latency_delta = 0
 var latency_history = []
@@ -21,7 +19,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Client physics runs at a standard 60fps (~0.01667s)
-	client_clock += delta + (latency_delta / 1000)
+	adjusted_clock += delta + (latency_delta / 1000)
 	latency_delta = 0
 
 #region Server Interface
@@ -70,7 +68,7 @@ func request_server_time(client_time):
 @rpc("authority", "call_remote")
 func receive_server_time(server_time, client_time):
 	latency = (Time.get_unix_time_from_system() - client_time) * 1000
-	client_clock = server_time + (latency / 1000)
+	adjusted_clock = server_time + (latency / 1000)
 
 @rpc("any_peer", "call_remote")
 func request_latency():
@@ -124,4 +122,5 @@ func receive_world_state(world_state):
 	# World state packets currently contain the following elements:
 	# "T" - Timestamp // "P" - Position
 	get_node("../SceneManager/World").update_world_state(world_state)
+	get_node("../SceneManager/ClientDisplay").get_world_time(world_state["T"])
 #endregion

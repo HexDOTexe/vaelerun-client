@@ -21,7 +21,7 @@ Server="*res://Scripts/Server.gd"
 
 [display]
 
-window/vsync/vsync_mode=2
+window/vsync/vsync_mode=0
 
 [input]
 
