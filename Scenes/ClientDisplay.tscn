@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c888ue22kmn4w"]
 
-[node name="Client" type="Node"]
+[node name="ClientDisplay" type="Node"]
 
 [node name="ClientStatus" type="Label" parent="."]
 offset_right = 40.0

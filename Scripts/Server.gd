@@ -6,29 +6,45 @@ var port = 9999
 
 var temp_name = "Player"
 var local_client_id
+
 var connection_status = 0
 var connection_timer = 10.0
+var local_time = Time.get_unix_time_from_system()
+var client_clock = 0.0
+var clock_rounding_correction : float = 0
+var latency = 0
+var latency_delta = 0
+var latency_history = []
 
-#region Server Interface
 func _ready():
 	pass
 
+func _physics_process(delta):
+	# Client physics runs at a standard 60fps (~0.01667s)
+	client_clock += delta + (latency_delta / 1000)
+	latency_delta = 0
+
+#region Server Interface
 func connect_to_server():
 	network.create_client(ip, port)
 	network.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(network)
-	
-	#multiplayer.peer_connected.connect(client_connected)
-	#multiplayer.peer_disconnected.connect(client_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
+	multiplayer.server_disconnected.connect(server_disconnected)
 #endregion
 
 #region Network Events
 func connected_to_server():
-	sync_client_information.rpc_id(1, multiplayer.get_unique_id(), temp_name,)
 	connection_status = 1
 	local_client_id = multiplayer.get_unique_id()
+	request_server_time.rpc_id(1, Time.get_unix_time_from_system())
+	sync_client_information.rpc_id(1, local_client_id, temp_name)
+	var latency_timer = Timer.new()
+	latency_timer.wait_time = 0.5
+	latency_timer.autostart = true
+	latency_timer.connect("timeout", request_latency)
+	add_child(latency_timer)
 
 func connection_failed():
 	connection_status = 0
@@ -39,11 +55,43 @@ func timeout_monitor():
 	# If no server update is received after 10s, disconnect the client and kick to the login menu.
 	while connection_status == 0:
 		await get_tree().create_timer(connection_timer).timeout
-		
 
-@rpc("any_peer","call_remote")
+func server_disconnected():
+	pass
+
+@rpc("any_peer", "call_remote")
 func sync_client_information(_client_id, _player):
 	pass
+
+@rpc("any_peer", "call_remote")
+func request_server_time(client_time):
+	pass
+
+@rpc("authority", "call_remote")
+func receive_server_time(server_time, client_time):
+	latency = (Time.get_unix_time_from_system() - client_time) * 1000
+	client_clock = server_time + (latency / 1000)
+
+@rpc("any_peer", "call_remote")
+func request_latency():
+	request_latency.rpc_id(1, Time.get_unix_time_from_system())
+
+@rpc("authority", "call_remote")
+func receive_latency(client_time):
+	latency = (Time.get_unix_time_from_system() - client_time) * 1000
+	latency_history.append(latency)
+	if latency_history.size() == 9:
+		var latency_total = 0
+		latency_history.sort()
+		var median = latency_history[4]
+		for i in range(latency_history.size()-1,-1,-1):
+			if latency_history[i] > (2 * median) and latency_history[i] > 20:
+				latency_history.remove_at(i)
+			else:
+				latency_total += latency_history[i]
+		latency_delta = (latency_total / latency_history.size()) - latency
+		latency = latency_total / latency_history.size()
+		latency_history.clear()
 #endregion
 
 #region Game World Events

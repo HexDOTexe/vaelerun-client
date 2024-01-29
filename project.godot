@@ -19,6 +19,10 @@ config/icon="res://Assets/Editor/vael_client.png"
 
 Server="*res://Scripts/Server.gd"
 
+[display]
+
+window/vsync/vsync_mode=2
+
 [input]
 
 move_right={

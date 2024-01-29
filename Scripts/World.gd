@@ -73,7 +73,7 @@ func process_world_state_buffer(_delta):
 					spawn_new_player(player, world_state_buffer[2][player]["P"])
 		elif render_time > world_state_buffer[1]["T"]:
 			var estimation_factor = float(render_time - world_state_buffer[0]["T"]) / float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.00
-			for player in world_state_buffer[2].keys():
+			for player in world_state_buffer[1].keys():
 				if str(player) == "T":
 					continue
 				if player == multiplayer.get_unique_id():
