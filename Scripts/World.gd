@@ -52,7 +52,7 @@ func process_world_state_buffer(_delta):
 	# if buffersize > 2, we have received enough updates to smoothly divide the states of the world updates
 	# otherwise, we will instead make some estimations based on previous states
 	# currently the estimation method gives an error if running the game from the editor, but seems fine with the standalone binary?
-	var render_time = Time.get_unix_time_from_system() - interpolation_rate
+	var render_time = Server.adjusted_clock - interpolation_rate
 	if world_state_buffer.size() > 1:
 		while world_state_buffer.size() > 2 and render_time > world_state_buffer[2]["T"]:
 			world_state_buffer.remove_at(0)

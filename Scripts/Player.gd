@@ -36,7 +36,7 @@ func _input(_event):
 	#print(event.as_text())
 	pass
 
-func player_movement(delta):
+func player_movement(_delta):
 	movement_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	movement_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	movement_vector = movement_vector.normalized()

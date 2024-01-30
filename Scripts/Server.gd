@@ -69,7 +69,7 @@ func sync_client_information(_client_id, _player):
 	pass
 
 @rpc("any_peer", "call_remote")
-func request_server_time(client_time):
+func request_server_time(_client_time):
 	# Function called on the server, initiated by the client.
 	# Empty function exists here to pass the RPC validation check.
 	pass
