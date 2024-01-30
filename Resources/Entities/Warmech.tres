@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://b03y7x3vaojci"]
+
+[ext_resource type="Script" path="res://Resources/Types/Entity.gd" id="1_k1lo0"]
+
+[resource]
+script = ExtResource("1_k1lo0")
+entity_type = ""
+entity_id = 0
+entity_name = ""
+entity_state = ""
+stat_health_maximum = 0
+stat_health_current = 0
+stat_health_percent = 0
+stat_power_type = ""
+stat_mana_maximum = 0
+stat_mana_current = 0
+stat_mana_percent = 0
+stat_movement_speed_base = 0
+stat_movement_speed_walking = 0
+stat_movement_speed_current = 50
+stat_movement_speed_maximum = 0
+stat_movement_speed_acceleration = 0

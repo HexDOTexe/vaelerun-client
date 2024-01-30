@@ -1,9 +1,11 @@
 extends CharacterBody2D
-class_name Entity
+class_name EntityNode
 
 # PROPERTIES
-var entity_type
-var entity_name
+var entity_type : String
+var entity_id : int
+var entity_name : String
+var entity_state : String
 
 var stat_health_maximum : int
 var stat_health_current : int

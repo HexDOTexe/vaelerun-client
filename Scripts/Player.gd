@@ -4,6 +4,7 @@ class_name Player
 # PROPERTIES
 var entity_type : String = "Player"
 var entity_name : String = "Player"
+var entity_state : String = "Idle"
 
 var stat_health_maximum : int
 var stat_health_current : int

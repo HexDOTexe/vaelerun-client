@@ -1,8 +1,9 @@
 extends Node
 
 @onready var test_map = preload("res://Scenes/Maps/Test/TestMap.tscn")
-@onready var player_node = preload("res://Scenes/Entities/Player.tscn")
-@onready var other_player_node = preload("res://Scenes/Entities/OtherPlayer.tscn")
+@onready var player_node = preload("res://Scenes/Entities/PlayerNode.tscn")
+@onready var other_player_node = preload("res://Scenes/Entities/OtherPlayerNode.tscn")
+@onready var entity_node = preload("res://Scenes/Entities/EntityNode.tscn")
 
 var world_map
 
@@ -43,7 +44,14 @@ func despawn_player(client_id):
 
 #region Entity Events
 func spawn_new_entity(entity_id, entity):
-	pass
+	var new_entity = entity_node.instantiate()
+	new_entity.entity_type = entity["entity_type"]
+	new_entity.position = entity["entity_location"]
+	new_entity.stat_health_current = entity["entity_stat_health_current"]
+	new_entity.stat_health_maximum = entity["entity_stat_health_maximum"]
+	new_entity.entity_state = entity["entity_state"]
+	new_entity.name = str(entity_id)
+	$Map.add_child(new_entity)
 
 func despawn_entity(entity_id, entity):
 	pass
