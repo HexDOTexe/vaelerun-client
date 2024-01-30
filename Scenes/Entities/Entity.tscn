@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dohqakong4c2f"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_8tu12"]
-[ext_resource type="Texture2D" uid="uid://cmaet7rwdtarm" path="res://Assets/Sprites/PC.png" id="2_bsu6s"]
+[ext_resource type="Texture2D" uid="uid://dcawaspbgp2bp" path="res://Assets/Sprites/Entity.png" id="2_pbnp0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
 
@@ -11,7 +11,7 @@ script = ExtResource("1_8tu12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
-texture = ExtResource("2_bsu6s")
+texture = ExtResource("2_pbnp0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bismq")
