@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name NPC
+class_name Entity
 
 # PROPERTIES
 var entity_type
@@ -27,3 +27,6 @@ var stat_movement_speed_acceleration : int
 
 func _ready():
 	pass
+
+func update_entity(new_position):
+	self.position = new_position

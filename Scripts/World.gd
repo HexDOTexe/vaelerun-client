@@ -41,8 +41,17 @@ func despawn_player(client_id):
 	get_node("./Map/" + str(client_id)).queue_free()
 #endregion
 
+#region Entity Events
+func spawn_new_entity(entity_id, entity):
+	pass
+
+func despawn_entity(entity_id, entity):
+	pass
+#endregion
+
 func update_world_state(world_state):
 	if world_state["T"] > local_world_state:
+		print(world_state)
 		local_world_state = world_state["T"]
 		world_state_buffer.append(world_state)
 
@@ -61,6 +70,8 @@ func process_world_state_buffer(_delta):
 			for player in world_state_buffer[2].keys():
 				if str(player) == "T":
 					continue
+				if str(player) == "Entities":
+					continue
 				if player == multiplayer.get_unique_id():
 					continue
 				if !world_state_buffer[1].has(player):
@@ -71,10 +82,21 @@ func process_world_state_buffer(_delta):
 				else:
 					print("Spawning new player")
 					spawn_new_player(player, world_state_buffer[2][player]["P"])
+			for entity in world_state_buffer[2]["Entities"].keys():
+				if !world_state_buffer[1]["Entities"].has(entity):
+					continue
+				if $Map.has_node((str(entity))):
+					var new_position = lerp(world_state_buffer[1]["Entities"][entity]["entity_location"], world_state_buffer[2]["Entities"][entity]["entity_location"], interpolation_factor)
+					get_node("./Map/" + str(entity)).update_entity(new_position)
+				else:
+					print("Spawning new entity")
+					spawn_new_entity(entity, world_state_buffer[2]["Entities"][entity])
 		elif render_time > world_state_buffer[1]["T"]:
 			var estimation_factor = float(render_time - world_state_buffer[0]["T"]) / float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.00
 			for player in world_state_buffer[1].keys():
 				if str(player) == "T":
+					continue
+				if str(player) == "Entities":
 					continue
 				if player == multiplayer.get_unique_id():
 					continue
