@@ -19,6 +19,8 @@ func _ready():
 
 func _physics_process(delta):
 	# Client physics runs at a standard 60fps (~0.01667s)
+	# Client attempts to self-correct the local world timer based on average latency.
+	# Not entirely happy with the solution as a whole. Oh well!
 	adjusted_clock += delta + (latency_delta / 1000)
 	latency_delta = 0
 
@@ -41,11 +43,8 @@ func connected_to_server():
 	var latency_timer = Timer.new()
 	latency_timer.wait_time = 0.5
 	latency_timer.autostart = true
-	latency_timer.connect("timeout", request_latency)
+	latency_timer.connect("timeout", check_latency)
 	add_child(latency_timer)
-
-func connection_failed():
-	connection_status = 0
 
 func timeout_monitor():
 	# (NYI) Starts a timer whenever communication with the server is lost.
@@ -54,28 +53,44 @@ func timeout_monitor():
 	while connection_status == 0:
 		await get_tree().create_timer(connection_timer).timeout
 
+func check_latency():
+	request_latency.rpc_id(1, Time.get_unix_time_from_system())
+
+func connection_failed():
+	connection_status = 0
+
 func server_disconnected():
 	pass
 
 @rpc("any_peer", "call_remote")
 func sync_client_information(_client_id, _player):
+	# Function called on the server, initiated by the client.
+	# Empty function exists here to pass the RPC validation check.
 	pass
 
 @rpc("any_peer", "call_remote")
 func request_server_time(client_time):
+	# Function called on the server, initiated by the client.
+	# Empty function exists here to pass the RPC validation check.
 	pass
 
 @rpc("authority", "call_remote")
 func receive_server_time(server_time, client_time):
+	# Function called on the client, initiated by the server.
+	# Empty function exists on the server to pass the RPC validation check.
 	latency = (Time.get_unix_time_from_system() - client_time) * 1000
 	adjusted_clock = server_time + (latency / 1000)
 
 @rpc("any_peer", "call_remote")
 func request_latency():
-	request_latency.rpc_id(1, Time.get_unix_time_from_system())
+	# Function called on the server, initiated by the client.
+	# Empty function exists here to pass the RPC validation check.
+	pass
 
 @rpc("authority", "call_remote")
 func receive_latency(client_time):
+	# Function called on the client, initiated by the server.
+	# Empty function exists on the server to pass the RPC validation check.
 	latency = (Time.get_unix_time_from_system() - client_time) * 1000
 	latency_history.append(latency)
 	if latency_history.size() == 9:
