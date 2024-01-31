@@ -135,9 +135,9 @@ func send_world_state(_world_state):
 @rpc("any_peer", "unreliable_ordered")
 func receive_world_state(world_state):
 	# World state packets currently contain the following elements:
-	# Players: 	"T" - Timestamp 		/ "P" - Position
-	# Entities: "entity_type" 			/ "entity_location" 		/ "entity_current_health"
-	# Entities: "entity_maximum_health" / "entity_state" 			/ "entity_respawn_timer"
+	# Players: 	"T" - Timestamp 	/ "P" - Position
+	# Entities: "entity_index_id" 	/ "location" 		/ "current_health"
+	# Entities: "maximum_health"	/ "entity_state" 	/ "entity_respawn_timer"
 	get_node("../SceneManager/World").update_world_state(world_state)
 	get_node("../SceneManager/ClientDisplay").get_world_time(world_state["T"])
 #endregion

@@ -2,26 +2,25 @@ extends CharacterBody2D
 class_name EntityNode
 
 # PROPERTIES
-var entity_type : String
-var entity_id : int
+var entity_index_id : int
+var entity_resource : Entity
+
 var entity_name : String
-var entity_state : String
+var entity_state
 
-var stat_health_maximum : int
-var stat_health_current : int
-var stat_health_percent : int
+var health_maximum : int
+var health_current : int
+var health_percent : int
 
-var stat_power_type : String
+var power_type : String
+var power_maximum : int
+var power_current : int
+var power_percent : int
 
-var stat_mana_maximum : int
-var stat_mana_current : int
-var stat_mana_percent : int
-
-var stat_movement_speed_base : int
-var stat_movement_speed_walking : int
-var stat_movement_speed_current : int = 50
-var stat_movement_speed_maximum : int
-var stat_movement_speed_acceleration : int
+var move_speed_base : int
+var move_speed_walking : int
+var move_speed_current : int
+var move_speed_maximum : int
 
 #func _init(type, iName):
 #	entity_type = type
@@ -29,6 +28,9 @@ var stat_movement_speed_acceleration : int
 
 func _ready():
 	pass
+
+func load_resource():
+	entity_resource = load("res://Resources/Entities/"+str(entity_index_id)+".tres")
 
 func update_entity(new_position):
 	self.position = new_position

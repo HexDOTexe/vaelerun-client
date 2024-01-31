@@ -45,11 +45,12 @@ func despawn_player(client_id):
 #region Entity Events
 func spawn_new_entity(entity_id, entity):
 	var new_entity = entity_node.instantiate()
-	new_entity.entity_type = entity["entity_type"]
-	new_entity.position = entity["entity_location"]
-	new_entity.stat_health_current = entity["entity_stat_health_current"]
-	new_entity.stat_health_maximum = entity["entity_stat_health_maximum"]
-	new_entity.entity_state = entity["entity_state"]
+	new_entity.entity_index_id = entity["entity_index_id"]
+	new_entity.load_resource()
+	new_entity.position = entity["location"]
+	new_entity.health_current = entity["health_current"]
+	new_entity.health_maximum = entity["health_maximum"]
+	new_entity.entity_state = entity["state"]
 	new_entity.name = str(entity_id)
 	$Map.add_child(new_entity)
 
@@ -68,7 +69,6 @@ func process_world_state_buffer(_delta):
 	# 0:[Old State] - 1:[Previous State] - 2:[Next State] - 3:[Future State]
 	# if buffersize > 2, we have received enough updates to smoothly divide the states of the world updates
 	# otherwise, we will instead make some estimations based on previous states
-	# currently the estimation method gives an error if running the game from the editor, but seems fine with the standalone binary?
 	var render_time = Server.adjusted_clock - interpolation_rate
 	if world_state_buffer.size() > 1:
 		while world_state_buffer.size() > 2 and render_time > world_state_buffer[2]["T"]:
@@ -94,7 +94,7 @@ func process_world_state_buffer(_delta):
 				if !world_state_buffer[1]["Entities"].has(entity):
 					continue
 				if $Map.has_node((str(entity))):
-					var new_position = lerp(world_state_buffer[1]["Entities"][entity]["entity_location"], world_state_buffer[2]["Entities"][entity]["entity_location"], interpolation_factor)
+					var new_position = lerp(world_state_buffer[1]["Entities"][entity]["location"], world_state_buffer[2]["Entities"][entity]["location"], interpolation_factor)
 					get_node("./Map/" + str(entity)).update_entity(new_position)
 				else:
 					print("Spawning new entity")
