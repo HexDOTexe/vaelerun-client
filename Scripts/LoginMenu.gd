@@ -31,4 +31,4 @@ func _on_connect_pressed():
 func _on_button_pressed():
 	self.visible = false
 	get_parent().get_node("World/Map").visible = true
-	pass
+	get_parent().get_node("World/Map/"+str(Server.local_client_id)).activate_camera()
