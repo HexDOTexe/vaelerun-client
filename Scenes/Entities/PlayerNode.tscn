@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgpano0xrnlds"]
+[gd_scene load_steps=5 format=3 uid="uid://bgpano0xrnlds"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_h3clo"]
 [ext_resource type="Texture2D" uid="uid://cmaet7rwdtarm" path="res://Assets/Sprites/PC.png" id="2_l63ml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo6cx"]
+size = Vector2(60, 68)
+
 [node name="PlayerNode" type="CharacterBody2D"]
 collision_layer = 2
+input_pickable = true
 script = ExtResource("1_h3clo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,3 +22,9 @@ shape = SubResource("CircleShape2D_bismq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yo6cx")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

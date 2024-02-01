@@ -139,5 +139,5 @@ func receive_world_state(world_state):
 	# Entities: "entity_index_id" 	/ "location" 		/ "current_health"
 	# Entities: "maximum_health"	/ "entity_state" 	/ "entity_respawn_timer"
 	get_node("../SceneManager/World").update_world_state(world_state)
-	get_node("../SceneManager/ClientDisplay").get_world_time(world_state["T"])
+	get_node("../UserInterface/GUI/ClientDisplay").get_world_time(world_state["T"])
 #endregion

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0k0e2nd0fi7"]
+
+[ext_resource type="Script" path="res://Scripts/Tooltip.gd" id="1_gxkj1"]
+[ext_resource type="Texture2D" uid="uid://d4nxhh87twnhn" path="res://Assets/Textures/Interface/border_gold.png" id="1_y06ig"]
+
+[node name="Tooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gxkj1")
+
+[node name="BGPanel" type="PanelContainer" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 152.0
+offset_bottom = 57.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BGPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BGPanel/MarginContainer"]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="BGPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = -10
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = -10
+theme_override_constants/margin_bottom = -10
+
+[node name="Border" type="NinePatchRect" parent="BGPanel/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("1_y06ig")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24

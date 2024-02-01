@@ -4,9 +4,12 @@ class_name EntityNode
 # PROPERTIES
 var entity_index_id : int
 var entity_resource : Entity
-
-var entity_name : String
+var entity_type : String = "NPC"
 var entity_state
+
+var entity_name : String = "Warmech"
+var entity_class : String = "Machine"
+var entity_level : int = 10
 
 var health_maximum : int
 var health_current : int
@@ -34,3 +37,11 @@ func load_resource():
 
 func update_entity(new_position):
 	self.position = new_position
+
+func _on_mouse_entered():
+	print(str(self.name)+" enter")
+	UserInterface.mouse_hover(self)
+
+func _on_mouse_exited():
+	print(str(self.name)+" exit")
+	UserInterface.mouse_dehover(self)

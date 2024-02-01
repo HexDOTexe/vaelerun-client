@@ -3,15 +3,17 @@ class_name Player
 
 # PROPERTIES
 var entity_type : String = "Player"
-var entity_name : String = "Player"
 var entity_state : String = "Idle"
+
+var entity_name : String = "Player"
+var entity_class : String = "Adventurer"
+var entity_level : int = 1
 
 var stat_health_maximum : int
 var stat_health_current : int
 var stat_health_percent : int
 
 var stat_power_type : String
-
 var stat_power_maximum : int
 var stat_power_current : int
 var stat_power_percent : int
@@ -33,9 +35,20 @@ func _physics_process(delta):
 	player_movement(delta)
 	define_player_state()
 
-func _input(_event):
-	#print(event.as_text())
-	pass
+func define_player_state():
+	player_state = {"T": Time.get_unix_time_from_system(), "P": get_position()}
+	Server.send_player_state(player_state)
+
+func activate_camera():
+	$Camera2D.enabled = true
+
+func _on_mouse_entered():
+	print(str(self.name)+" enter")
+	UserInterface.mouse_hover(self)
+
+func _on_mouse_exited():
+	print(str(self.name)+" exit")
+	UserInterface.mouse_dehover(self)
 
 func player_movement(_delta):
 	movement_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -56,11 +69,3 @@ func player_movement(_delta):
 		velocity = movement_vector
 	
 	move_and_slide()
-
-func activate_camera():
-	$Camera2D.enabled = true
-
-func define_player_state():
-	player_state = {"T": Time.get_unix_time_from_system(), "P": get_position()}
-	Server.send_player_state(player_state)
-	pass

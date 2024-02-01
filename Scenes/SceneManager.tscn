@@ -1,19 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6828ghb5ykdv"]
+[gd_scene load_steps=4 format=3 uid="uid://b6828ghb5ykdv"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.gd" id="1_tphq4"]
-[ext_resource type="PackedScene" uid="uid://c888ue22kmn4w" path="res://Scenes/ClientDisplay.tscn" id="2_3v7qv"]
 [ext_resource type="PackedScene" uid="uid://d2cyvaohri2d4" path="res://Scenes/Interface/LoginMenu.tscn" id="2_yu5cp"]
 [ext_resource type="Script" path="res://Scripts/World.gd" id="3_84r5o"]
-[ext_resource type="Script" path="res://Scripts/ClientDisplay.gd" id="3_s8n6p"]
 
 [node name="SceneManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_tphq4")
 
-[node name="ClientDisplay" parent="." instance=ExtResource("2_3v7qv")]
-script = ExtResource("3_s8n6p")
-
-[node name="LoginMenu" parent="." instance=ExtResource("2_yu5cp")]
-
 [node name="World" type="Node" parent="."]
 script = ExtResource("3_84r5o")
+
+[node name="LoginMenu" parent="." instance=ExtResource("2_yu5cp")]

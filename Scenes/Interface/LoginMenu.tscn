@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2cyvaohri2d4"]
+[gd_scene load_steps=3 format=3 uid="uid://d2cyvaohri2d4"]
 
 [ext_resource type="Script" path="res://Scripts/LoginMenu.gd" id="1_rbbpd"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_xk24a"]
 
 [node name="LoginMenu" type="Control"]
 layout_mode = 3
@@ -11,9 +12,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_xk24a")
 script = ExtResource("1_rbbpd")
 
-[node name="LoginPanel" type="PanelContainer" parent="."]
+[node name="LoginPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,14 +23,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -257.0
-offset_top = -149.0
-offset_right = 257.0
-offset_bottom = 149.0
+offset_top = -162.0
+offset_right = 263.0
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
@@ -84,6 +91,10 @@ text = "Join"
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+text = "Exit"
 
 [connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/Connect" to="." method="_on_connect_pressed"]
