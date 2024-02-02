@@ -14,8 +14,7 @@ func _ready():
 	start_canvas()
 
 func _process(_delta):
-	if tooltip_active == true:
-		$GUI/Tooltip.global_position = get_viewport().get_mouse_position()
+	$GUI/Tooltip.global_position = get_viewport().get_mouse_position()
 	if hovered_targets.is_empty() == false:
 		display_tooltip()
 	else:
