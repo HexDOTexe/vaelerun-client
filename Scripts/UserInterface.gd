@@ -4,7 +4,7 @@ extends Node
 @onready var login_menu = preload("res://Scenes/Interface/LoginMenu.tscn")
 @onready var tooltip = preload("res://Scenes/Interface/Tooltip.tscn")
 
-var hovered_target
+var hovered_targets = []
 var selected_target
 var focused_target
 
@@ -16,45 +16,34 @@ func _ready():
 func _process(_delta):
 	if tooltip_active == true:
 		$GUI/Tooltip.global_position = get_viewport().get_mouse_position()
-	if hovered_target:
+	if hovered_targets.is_empty() == false:
 		display_tooltip()
 	else:
-		erase_tooltip()
+		hide_tooltip()
 
 func start_canvas():
 	var new_canvas = CanvasLayer.new()
 	var new_debug_display = debug_display.instantiate()
+	var new_tooltip = tooltip.instantiate()
 	new_canvas.name = "GUI"
+	new_tooltip.visible = false
 	add_child(new_canvas)
 	$GUI.add_child(new_debug_display)
+	$GUI.add_child(new_tooltip)
 
 func mouse_hover(target):
-	if hovered_target == null:
-		hovered_target = target
+	hovered_targets.append(target)
 
-func mouse_dehover(_target):
-	if !hovered_target == null:
-		hovered_target = null
+func mouse_dehover(target):
+	hovered_targets.erase(target)
 
 func display_tooltip():
-	if tooltip_active == false:
-		var new_tooltip = tooltip.instantiate()
-		if hovered_target.entity_type == "Player":
-			new_tooltip.content += str(hovered_target.entity_name) + "\n"
-			new_tooltip.content += "Level "+str(hovered_target.entity_level)+" "+str(hovered_target.entity_class)+"\n"
-			new_tooltip.global_position = get_viewport().get_mouse_position()
-			$GUI.add_child(new_tooltip)
-			tooltip_active = true
-			#print(hovered_target.entity_name)
-		if hovered_target.entity_type == "NPC":
-			new_tooltip.content += str(hovered_target.entity_name) + "\n"
-			new_tooltip.content += "Level "+str(hovered_target.entity_level)+" "+str(hovered_target.entity_class)+"\n"
-			new_tooltip.global_position = get_viewport().get_mouse_position()
-			$GUI.add_child(new_tooltip)
-			tooltip_active = true
-			#print(hovered_target.entity_name)
+	var data = hovered_targets[0]
+	$GUI/Tooltip.display_content(data)
+	$GUI/Tooltip.visible = true
+	tooltip_active = true
 
-func erase_tooltip():
+func hide_tooltip():
 	if tooltip_active == true:
-		$GUI/Tooltip.free()
+		$GUI/Tooltip.visible = false
 		tooltip_active = false

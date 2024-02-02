@@ -39,9 +39,7 @@ func update_entity(new_position):
 	self.position = new_position
 
 func _on_mouse_entered():
-	print(str(self.name)+" enter")
 	UserInterface.mouse_hover(self)
 
 func _on_mouse_exited():
-	print(str(self.name)+" exit")
 	UserInterface.mouse_dehover(self)

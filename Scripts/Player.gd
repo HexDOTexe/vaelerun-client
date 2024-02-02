@@ -43,11 +43,9 @@ func activate_camera():
 	$Camera2D.enabled = true
 
 func _on_mouse_entered():
-	print(str(self.name)+" enter")
 	UserInterface.mouse_hover(self)
 
 func _on_mouse_exited():
-	print(str(self.name)+" exit")
 	UserInterface.mouse_dehover(self)
 
 func player_movement(_delta):
