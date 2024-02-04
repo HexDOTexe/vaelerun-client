@@ -1,27 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dohqakong4c2f"]
+[gd_scene load_steps=4 format=3 uid="uid://dohqakong4c2f"]
 
 [ext_resource type="Script" path="res://Scripts/EntityNode.gd" id="1_rjjcq"]
 [ext_resource type="Texture2D" uid="uid://dcawaspbgp2bp" path="res://Assets/Sprites/Entity.png" id="2_xfxe5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi570"]
-size = Vector2(144, 138)
+radius = 26.0
 
 [node name="EntityNode" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 13
 input_pickable = true
 script = ExtResource("1_rjjcq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -66)
 scale = Vector2(3, 3)
 texture = ExtResource("2_xfxe5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(2, 0.5)
 shape = SubResource("CircleShape2D_bismq")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hi570")
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="Area" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(0, -69)
+polygon = PackedVector2Array(20.8505, 60.3395, -5.93686, 53.9898, -45.4235, 17.9757, -32.8235, 2.5977, -26.8707, -0.0810394, -20.8187, -0.0810394, -17.9416, 2.79613, -17.9416, 14.9001, 10.4332, 32.2623, -5.83764, 39.604, -5.93685, 44.7631, 14.5009, 44.4654, 18.271, 50.6166, 32.7561, 50.7158, 33.0537, 53.4938, 53.9875, 53.6922, 50.2175, 44.7631, 41.7844, 45.1599, 33.0537, 42.0843, 27.597, 33.056, 26.4065, 29.9804, 18.1718, 30.0796, -0.182518, 14.8009, -0.0833054, 11.5268, 24.0254, 24.1268, 41.586, 24.0276, 47.8364, 20.6544, 47.8364, 14.9001, 53.6899, 14.9001, 57.9561, 8.15361, 58.2537, -2.56136, 54.9797, -17.6417, 40.6931, -27.0669, 40.8915, -38.6747, 28.8868, -48.7944, 28.6883, -56.8307, 22.934, -61.4937, 15.3939, -61.5929, 11.0285, -65.2637, -2.56362, -65.2637, -7.02819, -59.311, -11.592, -59.311, -12.5841, -62.8826, -26.1225, -62.8291, -37.9083, -65.2143, -38.7502, -62.6888, -46.888, -55.5331, -46.888, -45.7115, -43.8012, -43.3263, -43.5205, -33.3646, -41.2756, -32.8033, -40.7144, -30.9793, -49.8344, -22.9818, -49.4135, -4.32086, -61.4799, 14.7609, -58.3931, 25.8452, -37.6276, 37.7714, -34.6811, 40.2969, -36.3648, 43.3837, -49.4134, 51.8022, -50.115, 56.292, -37.0664, 56.0114, 1.09733, 67.236, 16.3909, 67.236, 20.3195, 64.9911)
+
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

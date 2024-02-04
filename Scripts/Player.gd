@@ -40,7 +40,7 @@ func define_player_state():
 	Server.send_player_state(player_state)
 
 func activate_camera():
-	$Camera2D.enabled = true
+	$Camera.enabled = true
 
 func _on_mouse_entered():
 	UserInterface.mouse_hover(self)
@@ -67,3 +67,11 @@ func player_movement(_delta):
 		velocity = movement_vector
 	
 	move_and_slide()
+
+
+func _on_hitbox_mouse_entered():
+	UserInterface.mouse_hover(self)
+
+
+func _on_hitbox_mouse_exited():
+	UserInterface.mouse_dehover(self)

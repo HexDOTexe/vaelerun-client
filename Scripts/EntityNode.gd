@@ -38,8 +38,8 @@ func load_resource():
 func update_entity(new_position):
 	self.position = new_position
 
-func _on_mouse_entered():
+func _on_hitbox_mouse_entered():
 	UserInterface.mouse_hover(self)
 
-func _on_mouse_exited():
+func _on_hitbox_mouse_exited():
 	UserInterface.mouse_dehover(self)
