@@ -48,6 +48,10 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	UserInterface.mouse_dehover(self)
 
+func update_player():
+	print("Function update_player called on local character - did client disconnect from server?")
+	pass
+
 func player_movement(_delta):
 	movement_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	movement_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
