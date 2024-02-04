@@ -14,12 +14,11 @@ script = ExtResource("1_h3clo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -34.5)
+position = Vector2(0, -30.5)
 scale = Vector2(3, 3)
 texture = ExtResource("2_l63ml")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 scale = Vector2(2, 0.5)
 shape = SubResource("CircleShape2D_bismq")
 
@@ -28,7 +27,7 @@ collision_layer = 2048
 collision_mask = 2048
 
 [node name="Area" type="CollisionPolygon2D" parent="Hitbox"]
-position = Vector2(0, -23)
+position = Vector2(0, -19)
 polygon = PackedVector2Array(-24, 5, -24, -10, -21, -10, -21, -19, -18, -19, -18, -22, -30, -22, -30, -25, -27, -25, -27, -28, -21, -28, -21, -31, -18, -31, -18, -34, -15, -34, -15, -43, -12, -43, -12, -46, 15, -46, 15, -43, 18, -43, 18, -40, 21, -40, 21, -34, 18, -34, 18, -31, 15, -31, 15, -22, 18, -22, 18, -19, 21, -19, 21, -10, 18, -10, 18, -7, 21, -7, 21, 5, 24, 5, 24, 14, 27, 14, 27, 20, 30, 20, 30, 23, -18, 23, -18, 20, -21, 20, -21, 5)
 
 [node name="Camera" type="Camera2D" parent="."]
