@@ -26,9 +26,11 @@ func _on_text_edit_text_changed():
 func _on_connect_pressed():
 	namebox.editable = false
 	Server.connect_to_server()
+	
 
 # Join button
 func _on_button_pressed():
 	self.visible = false
 	get_parent().get_node("World/Map").visible = true
 	get_parent().get_node("World/Map/"+str(Server.local_client_id)).activate_camera()
+	UserInterface.display_overlay()

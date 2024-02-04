@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnxuip338frr2"]
+
+[ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="1_ig1pt"]
+[ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_daxsy"]
+[ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_3a1e3"]
+
+[node name="TargetFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FrameBorder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -379.0
+offset_bottom = 104.0
+grow_horizontal = 0
+texture = ExtResource("1_ig1pt")
+flip_h = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="FrameBorder"]
+z_index = -1
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 275.0
+offset_bottom = 71.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+value = 100.0
+rounded = true
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("2_daxsy")
+texture_progress = ExtResource("3_3a1e3")
+tint_progress = Color(0.313726, 0.682353, 0, 1)
+
+[node name="PowerBar" type="TextureProgressBar" parent="FrameBorder"]
+z_index = -1
+offset_left = 5.0
+offset_top = 74.0
+offset_right = 275.0
+offset_bottom = 91.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+value = 100.0
+rounded = true
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("2_daxsy")
+texture_progress = ExtResource("3_3a1e3")
+tint_progress = Color(0.0941176, 0, 0.929412, 1)
+
+[node name="NameLabel" type="Label" parent="FrameBorder"]
+offset_left = 127.0
+offset_top = 5.0
+offset_right = 269.0
+offset_bottom = 28.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Placeholder Name"
+
+[node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
+offset_left = 280.0
+offset_top = 5.0
+offset_right = 374.0
+offset_bottom = 99.0
+texture = ExtResource("2_daxsy")
+expand_mode = 1

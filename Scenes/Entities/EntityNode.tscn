@@ -14,9 +14,10 @@ script = ExtResource("1_rjjcq")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -53)
+position = Vector2(0, 3.75)
 scale = Vector2(3, 3)
 texture = ExtResource("2_xfxe5")
+offset = Vector2(0, -17.6666)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 0.5)

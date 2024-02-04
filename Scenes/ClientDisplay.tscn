@@ -7,5 +7,10 @@ script = ExtResource("1_t82d2")
 
 [node name="ClientStatus" type="Label" parent="."]
 z_index = 6
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 11.5
+grow_vertical = 2

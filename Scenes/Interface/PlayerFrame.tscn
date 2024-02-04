@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://btavrdgbok5hi"]
+
+[ext_resource type="Script" path="res://Scenes/Interface/PlayerFrame.gd" id="1_akjqe"]
+[ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="1_lf14a"]
+[ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_7oo0w"]
+[ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_ysleh"]
+
+[node name="PlayerFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_akjqe")
+
+[node name="FrameBorder" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_lf14a")
+
+[node name="HealthBar" type="TextureProgressBar" parent="FrameBorder"]
+z_index = -1
+layout_mode = 0
+offset_left = 104.0
+offset_top = 36.0
+offset_right = 374.0
+offset_bottom = 71.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("2_7oo0w")
+texture_progress = ExtResource("3_ysleh")
+tint_progress = Color(0.313726, 0.682353, 0, 1)
+
+[node name="PowerBar" type="TextureProgressBar" parent="FrameBorder"]
+z_index = -1
+layout_mode = 0
+offset_left = 104.0
+offset_top = 74.0
+offset_right = 374.0
+offset_bottom = 91.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("2_7oo0w")
+texture_progress = ExtResource("3_ysleh")
+tint_progress = Color(0.0941176, 0, 0.929412, 1)
+
+[node name="NameLabel" type="Label" parent="FrameBorder"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 30.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Placeholder Name"
+
+[node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 99.0
+offset_bottom = 99.0
+texture = ExtResource("2_7oo0w")
+expand_mode = 1
