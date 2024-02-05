@@ -1,10 +1,11 @@
 extends Node
 
 @onready var debug_display = preload("res://Scenes/ClientDisplay.tscn")
-@onready var login_menu = preload("res://Scenes/Interface/LoginMenu.tscn")
-@onready var overlay = preload("res://Scenes/Interface/Overlay.tscn")
-@onready var game_menu = preload("res://Scenes/Interface/GameMenu.tscn")
-@onready var tooltip = preload("res://Scenes/Interface/Tooltip.tscn")
+@onready var LoginMenu = preload("res://Scenes/Interface/LoginMenu.tscn")
+@onready var Overlay = preload("res://Scenes/Interface/Overlay.tscn")
+@onready var GameMenu = preload("res://Scenes/Interface/GameMenu.tscn")
+@onready var SystemMenu = preload("res://Scenes/Interface/SystemMenu.tscn")
+@onready var Tooltip = preload("res://Scenes/Interface/Tooltip.tscn")
 
 var active_menus = []
 var hovered_targets = []
@@ -36,7 +37,7 @@ func _input(event):
 	elif event is InputEventKey:
 		if event.is_action_pressed("ui_cancel"):
 			if active_menus.is_empty() == true:
-				open_specific_menu(game_menu)
+				open_specific_menu(GameMenu)
 			else:
 				var last_menu = active_menus.size() - 1
 				close_specific_menu(active_menus[last_menu])
@@ -44,8 +45,8 @@ func _input(event):
 func start_canvas():
 	var new_canvas = CanvasLayer.new()
 	var new_debug_display = debug_display.instantiate()
-	var new_tooltip = tooltip.instantiate()
-	var new_overlay = overlay.instantiate()
+	var new_tooltip = Tooltip.instantiate()
+	var new_overlay = Overlay.instantiate()
 	new_canvas.name = "GUI"
 	new_overlay.visible = false
 	new_tooltip.visible = false
@@ -95,3 +96,6 @@ func close_specific_menu(menu):
 	$GUI.remove_child(menu_obj)
 	print("Closing menu: "+menu)
 	active_menus.erase(menu)
+
+func quit_to_title():
+	pass

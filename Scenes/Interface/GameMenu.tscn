@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://14bepp76evuw"]
+[gd_scene load_steps=6 format=3 uid="uid://14bepp76evuw"]
 
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_i1ece"]
 [ext_resource type="Script" path="res://Scripts/GameMenu.gd" id="1_ppu2g"]
+[ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="3_gud5s"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_onljy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvg2t"]
+texture = ExtResource("3_gud5s")
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -27,35 +32,67 @@ offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_i1ece")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rvg2t")
 
-[node name="VDIV" type="VBoxContainer" parent="MenuPanel"]
+[node name="Margin" type="MarginContainer" parent="MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="VDIV" type="VBoxContainer" parent="MenuPanel/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="SystemButton" type="Button" parent="MenuPanel/VDIV"]
+[node name="Label" type="Label" parent="MenuPanel/Margin/VDIV"]
+layout_mode = 2
+text = "GAME MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSEP" type="HSeparator" parent="MenuPanel/Margin/VDIV"]
+layout_mode = 2
+
+[node name="SystemButton" type="Button" parent="MenuPanel/Margin/VDIV"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "System"
 
-[node name="ControlsButton" type="Button" parent="MenuPanel/VDIV"]
+[node name="ControlsButton" type="Button" parent="MenuPanel/Margin/VDIV"]
 layout_mode = 2
 text = "Controls"
 
-[node name="LogoutButton" type="Button" parent="MenuPanel/VDIV"]
+[node name="HSEP2" type="HSeparator" parent="MenuPanel/Margin/VDIV"]
+layout_mode = 2
+
+[node name="LogoutButton" type="Button" parent="MenuPanel/Margin/VDIV"]
 layout_mode = 2
 text = "Logout"
 
-[node name="ExitButton" type="Button" parent="MenuPanel/VDIV"]
+[node name="ExitButton" type="Button" parent="MenuPanel/Margin/VDIV"]
 layout_mode = 2
 text = "Exit Game"
 
-[node name="ReturnButton" type="Button" parent="MenuPanel/VDIV"]
+[node name="HSEP3" type="HSeparator" parent="MenuPanel/Margin/VDIV"]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="MenuPanel/Margin/VDIV"]
 layout_mode = 2
 text = "Return"
 
-[connection signal="pressed" from="MenuPanel/VDIV/SystemButton" to="." method="_on_system_button_pressed"]
-[connection signal="pressed" from="MenuPanel/VDIV/ControlsButton" to="." method="_on_controls_button_pressed"]
-[connection signal="pressed" from="MenuPanel/VDIV/LogoutButton" to="." method="_on_logout_button_pressed"]
-[connection signal="pressed" from="MenuPanel/VDIV/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="MenuPanel/VDIV/ReturnButton" to="." method="_on_return_button_pressed"]
+[node name="Border" type="NinePatchRect" parent="MenuPanel"]
+layout_mode = 2
+texture = ExtResource("3_onljy")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[connection signal="pressed" from="MenuPanel/Margin/VDIV/SystemButton" to="." method="_on_system_button_pressed"]
+[connection signal="pressed" from="MenuPanel/Margin/VDIV/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="MenuPanel/Margin/VDIV/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="MenuPanel/Margin/VDIV/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuPanel/Margin/VDIV/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -26,6 +26,32 @@ tab_alignment = 1
 [node name="Video" type="PanelContainer" parent="TabContainer"]
 layout_mode = 2
 
+[node name="Margin" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VDIV" type="VBoxContainer" parent="TabContainer/Video/Margin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Video/Margin/VDIV"]
+layout_mode = 2
+text = "test"
+
+[node name="Label2" type="Label" parent="TabContainer/Video/Margin/VDIV"]
+layout_mode = 2
+text = "test"
+
+[node name="Label3" type="Label" parent="TabContainer/Video/Margin/VDIV"]
+layout_mode = 2
+text = "test"
+
+[node name="Label4" type="Label" parent="TabContainer/Video/Margin/VDIV"]
+layout_mode = 2
+text = "test"
+
 [node name="Audio" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
