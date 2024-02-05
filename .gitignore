@@ -16,3 +16,9 @@ mono_crash.*.json
 
 # custom ignores
 Binaries/
+Assets/Fonts/Atkinson-Hyperlegible-Regular-102.otf
+Assets/Fonts/Atkinson-Hyperlegible-Regular-102.otf.import
+Assets/Fonts/matrix-ii-bold.otf
+Assets/Fonts/matrix-ii-bold.otf.import
+Assets/Fonts/matrix-ii-regular.otf
+Assets/Fonts/matrix-ii-regular.otf.import

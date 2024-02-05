@@ -81,7 +81,7 @@ func process_world_state_buffer(_delta):
 					continue
 				if str(player) == "Entities":
 					continue
-				if player == multiplayer.get_unique_id():
+				if player == Server.local_client_id:
 					continue
 				if !world_state_buffer[1].has(player):
 					continue
@@ -107,7 +107,7 @@ func process_world_state_buffer(_delta):
 					continue
 				if str(player) == "Entities":
 					continue
-				if player == multiplayer.get_unique_id():
+				if player == Server.local_client_id:
 					continue
 				if !world_state_buffer[0].has(player):
 					continue

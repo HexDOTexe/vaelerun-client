@@ -1,3 +1,22 @@
-[gd_resource type="Theme" format=3 uid="uid://jegwin2s8h28"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://jegwin2s8h28"]
+
+[ext_resource type="FontFile" uid="uid://0xrwt7nlb1mb" path="res://Assets/Fonts/matrix-ii-bold.otf" id="1_6sc5c"]
+[ext_resource type="FontFile" uid="uid://h4p4531qw1yr" path="res://Assets/Fonts/matrix-ii-regular.otf" id="1_q8e6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17a5s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lfr5"]
 
 [resource]
+Button/fonts/font = ExtResource("1_6sc5c")
+Button/styles/focus = SubResource("StyleBoxEmpty_17a5s")
+Fonts/fonts/large = ExtResource("1_6sc5c")
+Fonts/fonts/normal = ExtResource("1_6sc5c")
+Label/fonts/font = ExtResource("1_6sc5c")
+LineEdit/font_sizes/font_size = 18
+LineEdit/fonts/font = ExtResource("1_q8e6v")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5lfr5")
+TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TextEdit/colors/font_outline_color = Color(1, 1, 1, 1)
+TextEdit/font_sizes/font_size = 18
+TextEdit/fonts/font = ExtResource("1_q8e6v")

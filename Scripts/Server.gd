@@ -60,7 +60,7 @@ func connection_failed():
 	connection_status = 0
 
 func server_disconnected():
-	pass
+	connection_status = 0
 
 @rpc("any_peer", "call_remote")
 func sync_client_information(_client_id, _player):
@@ -132,7 +132,7 @@ func receive_player_state(_player_state):
 func send_world_state(_world_state):
 	pass
 
-@rpc("any_peer", "unreliable_ordered")
+@rpc("authority", "unreliable_ordered")
 func receive_world_state(world_state):
 	# World state packets currently contain the following elements:
 	# Players: 	"T" - Timestamp 	/ "P" - Position

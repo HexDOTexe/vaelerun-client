@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://14bepp76evuw"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_i1ece"]
+[ext_resource type="Script" path="res://Scripts/GameMenu.gd" id="1_ppu2g"]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppu2g")
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -85.5
+offset_right = 43.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i1ece")
+
+[node name="VDIV" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="SystemButton" type="Button" parent="MenuPanel/VDIV"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "System"
+
+[node name="ControlsButton" type="Button" parent="MenuPanel/VDIV"]
+layout_mode = 2
+text = "Controls"
+
+[node name="LogoutButton" type="Button" parent="MenuPanel/VDIV"]
+layout_mode = 2
+text = "Logout"
+
+[node name="ExitButton" type="Button" parent="MenuPanel/VDIV"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="ReturnButton" type="Button" parent="MenuPanel/VDIV"]
+layout_mode = 2
+text = "Return"
+
+[connection signal="pressed" from="MenuPanel/VDIV/SystemButton" to="." method="_on_system_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VDIV/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VDIV/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VDIV/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuPanel/VDIV/ReturnButton" to="." method="_on_return_button_pressed"]

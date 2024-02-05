@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://btavrdgbok5hi"]
 
-[ext_resource type="Script" path="res://Scenes/Interface/PlayerFrame.gd" id="1_akjqe"]
+[ext_resource type="Script" path="res://Scripts/PlayerFrame.gd" id="1_akjqe"]
 [ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="1_lf14a"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_7oo0w"]
 [ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_ysleh"]

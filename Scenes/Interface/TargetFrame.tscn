@@ -26,6 +26,7 @@ flip_h = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="FrameBorder"]
 z_index = -1
+layout_mode = 0
 offset_left = 5.0
 offset_top = 36.0
 offset_right = 275.0
@@ -42,6 +43,7 @@ tint_progress = Color(0.313726, 0.682353, 0, 1)
 
 [node name="PowerBar" type="TextureProgressBar" parent="FrameBorder"]
 z_index = -1
+layout_mode = 0
 offset_left = 5.0
 offset_top = 74.0
 offset_right = 275.0
@@ -57,6 +59,7 @@ texture_progress = ExtResource("3_3a1e3")
 tint_progress = Color(0.0941176, 0, 0.929412, 1)
 
 [node name="NameLabel" type="Label" parent="FrameBorder"]
+layout_mode = 0
 offset_left = 127.0
 offset_top = 5.0
 offset_right = 269.0
@@ -65,6 +68,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Placeholder Name"
 
 [node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
+layout_mode = 0
 offset_left = 280.0
 offset_top = 5.0
 offset_right = 374.0
