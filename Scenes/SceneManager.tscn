@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.gd" id="1_tphq4"]
 [ext_resource type="PackedScene" uid="uid://d2cyvaohri2d4" path="res://Scenes/Interface/LoginMenu.tscn" id="2_yu5cp"]
 [ext_resource type="Script" path="res://Scripts/World.gd" id="3_84r5o"]
-[ext_resource type="Texture2D" uid="uid://dljj4sssiorou" path="res://Assets/Editor/vael_client.png" id="4_r7f2u"]
+[ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="4_isttn"]
 
 [node name="SceneManager" type="Node"]
 process_mode = 3
@@ -22,4 +22,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_r7f2u")
+texture = ExtResource("4_isttn")

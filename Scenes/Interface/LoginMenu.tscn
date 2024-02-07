@@ -114,8 +114,8 @@ patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
 
-[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_name_box_text_changed"]
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_button_pressed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/JoinButton" to="." method="_on_join_button_pressed"]
