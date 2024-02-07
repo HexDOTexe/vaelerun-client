@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://btavrdgbok5hi"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerFrame.gd" id="1_akjqe"]
-[ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="1_lf14a"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_7oo0w"]
 [ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_ysleh"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="7_0bght"]
 
 [node name="PlayerFrame" type="Control"]
 layout_mode = 3
@@ -21,34 +21,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-texture = ExtResource("1_lf14a")
 
 [node name="HealthBar" type="TextureProgressBar" parent="FrameBorder"]
-z_index = -1
 layout_mode = 0
 offset_left = 104.0
 offset_top = 36.0
-offset_right = 374.0
+offset_right = 454.0
 offset_bottom = 71.0
+tooltip_text = "Your remaining health."
 mouse_filter = 0
-mouse_default_cursor_shape = 2
-value = 100.0
-rounded = true
+theme = ExtResource("7_0bght")
+value = 52.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_7oo0w")
 texture_progress = ExtResource("3_ysleh")
 tint_progress = Color(0.313726, 0.682353, 0, 1)
 
 [node name="PowerBar" type="TextureProgressBar" parent="FrameBorder"]
-z_index = -1
 layout_mode = 0
 offset_left = 104.0
 offset_top = 74.0
-offset_right = 374.0
-offset_bottom = 91.0
+offset_right = 454.0
+offset_bottom = 94.0
+tooltip_text = "Your remaining mana."
 mouse_filter = 0
-mouse_default_cursor_shape = 2
-value = 100.0
+theme = ExtResource("7_0bght")
+value = 51.0
 rounded = true
 nine_patch_stretch = true
 texture_under = ExtResource("2_7oo0w")

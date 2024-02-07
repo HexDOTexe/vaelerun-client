@@ -15,6 +15,7 @@ var tooltip_active : bool = false
 
 # USER SETTINGS
 var tooltip_follows_cursor : bool = true
+var tooltip_delay : float = 0.1
 
 func _ready():
 	start_canvas()
@@ -23,16 +24,17 @@ func _process(_delta):
 	if tooltip_follows_cursor == true:
 		$GUI/Tooltip.global_position = get_viewport().get_mouse_position()
 	if hovered_targets.is_empty() == false:
-		display_tooltip()
+		tooltip_active = true
 	else:
-		hide_tooltip()
+		tooltip_active = false
+	display_tooltip()
+	hide_tooltip()
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if hovered_targets.is_empty() == false:
 				selected_target = hovered_targets[0] 
-				print(str(selected_target.entity_name))
 				#print("Mouse Click at: ", event.position)
 	elif event is InputEventKey:
 		if event.is_action_pressed("ui_cancel"):
@@ -74,14 +76,15 @@ func hide_overlay():
 	$GUI/Overlay.visible = false
 
 func display_tooltip():
-	if hovered_targets.is_empty() == false:
+	if tooltip_active == true:
 		var data = hovered_targets[0]
 		$GUI/Tooltip.display_content(data)
+		await get_tree().create_timer(tooltip_delay).timeout
 		$GUI/Tooltip.visible = true
-		tooltip_active = true
+		
 
 func hide_tooltip():
-	if tooltip_active == true:
+	if tooltip_active == false:
 		$GUI/Tooltip.visible = false
 		tooltip_active = false
 

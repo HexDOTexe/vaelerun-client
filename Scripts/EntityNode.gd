@@ -32,14 +32,27 @@ var move_speed_maximum : int
 func _ready():
 	pass
 
+func _physics_process(delta):
+	set_tooltip()
+
 func load_resource():
 	entity_resource = load("res://Resources/Entities/"+str(entity_index_id)+".tres")
 
 func update_entity(new_position):
 	self.position = new_position
 
+func set_tooltip():
+	var content = ""
+	content += "[color=red][b]"+self.entity_name+"[/b][/color]" + "\n"
+	content += "Level "+str(self.entity_level)+" "+str(self.entity_class)+"\n"
+	$Tooltip.tooltip_text = content 
+
+func get_tooltip():
+	var tooltip_content = $Tooltip.tooltip_text
+	return tooltip_content
+
 func _on_hitbox_mouse_entered():
-	UserInterface.mouse_hover(self)
+	UserInterface.mouse_hover(self.name)
 
 func _on_hitbox_mouse_exited():
-	UserInterface.mouse_dehover(self)
+	UserInterface.mouse_dehover(self.name)

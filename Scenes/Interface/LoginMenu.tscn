@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2cyvaohri2d4"]
+[gd_scene load_steps=5 format=3 uid="uid://d2cyvaohri2d4"]
 
 [ext_resource type="Script" path="res://Scripts/LoginMenu.gd" id="1_rbbpd"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_xk24a"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_s2cq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m0xl"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
 
 [node name="LoginMenu" type="Control"]
 layout_mode = 3
@@ -10,94 +14,109 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
 theme = ExtResource("1_xk24a")
 script = ExtResource("1_rbbpd")
 
-[node name="LoginPanel" type="Panel" parent="."]
+[node name="LoginPanel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -257.0
-offset_top = -162.0
-offset_right = 263.0
-offset_bottom = 164.0
+offset_left = -311.0
+offset_top = -212.0
+offset_right = 311.0
+offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xk24a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8m0xl")
 
 [node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_bottom = 20
 
 [node name="VDIV" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="HDIV" type="HBoxContainer" parent="LoginPanel/MarginContainer/VDIV"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = -55
 alignment = 1
 
-[node name="NameLabel" type="Label" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 20
-text = "Name"
-horizontal_alignment = 1
-
 [node name="NameBox" type="LineEdit" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
-custom_minimum_size = Vector2(200, 35)
+custom_minimum_size = Vector2(240, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_xk24a")
-placeholder_text = "Player"
+mouse_default_cursor_shape = 0
+placeholder_text = "Player Name"
 max_length = 14
 context_menu_enabled = false
 clear_button_enabled = true
 middle_mouse_paste_enabled = false
-deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 
 [node name="ConnectButton" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(180, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
 text = "Connect"
 
 [node name="JoinButton" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(180, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
 text = "Join"
+
+[node name="HSeparator" type="HSeparator" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
 
 [node name="MessageLabel" type="Label" parent="LoginPanel/MarginContainer/VDIV"]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitButton" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+[node name="HSeparator2" type="HSeparator" parent="LoginPanel/MarginContainer/VDIV"]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitButton" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Exit"
+
+[node name="BorderMargin" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="LoginPanel/BorderMargin"]
+layout_mode = 2
+texture = ExtResource("3_s2cq3")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_name_box_text_changed"]
-[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ExitButton" to="." method="_on_exit_button_pressed"]

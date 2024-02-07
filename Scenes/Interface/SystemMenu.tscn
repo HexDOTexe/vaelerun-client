@@ -1,12 +1,21 @@
-[gd_scene format=3 uid="uid://b6dg5x26240ts"]
+[gd_scene load_steps=3 format=3 uid="uid://b6dg5x26240ts"]
+
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="1_6mo05"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_vrldc"]
 
 [node name="SystemMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("1_vrldc")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -15,12 +24,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -452.0
-offset_top = -248.5
-offset_right = 452.0
-offset_bottom = 248.5
+offset_left = -272.0
+offset_top = -195.0
+offset_right = 272.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_vrldc")
 tab_alignment = 1
 
 [node name="Video" type="PanelContainer" parent="TabContainer"]
@@ -28,34 +39,268 @@ layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="TabContainer/Video"]
 layout_mode = 2
-theme_override_constants/margin_left = 15
+mouse_filter = 2
+theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Grid" type="GridContainer" parent="TabContainer/Video/Margin"]
+layout_mode = 2
+mouse_filter = 2
+columns = 2
+
+[node name="ResolutionLabel" type="Label" parent="TabContainer/Video/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="ResolutionOptions" type="OptionButton" parent="TabContainer/Video/Margin/Grid"]
+z_index = 1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+item_count = 2
+selected = 0
+popup/item_0/text = "2560 x 1440"
+popup/item_0/id = 1
+popup/item_1/text = "1920 x 1080"
+popup/item_1/id = 0
+
+[node name="DisplayModeLabel" type="Label" parent="TabContainer/Video/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Display Mode"
+vertical_alignment = 1
+
+[node name="DisplayOptions" type="OptionButton" parent="TabContainer/Video/Margin/Grid"]
+z_index = 1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+item_count = 2
+selected = 0
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 1
+popup/item_1/text = "Windowed"
+popup/item_1/id = 0
+
+[node name="VsyncLabel" type="Label" parent="TabContainer/Video/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Vsync"
+vertical_alignment = 1
+
+[node name="VsyncCheckButton" type="CheckButton" parent="TabContainer/Video/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="FrameLimitLabel" type="Label" parent="TabContainer/Video/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Frame Rate Limit"
+vertical_alignment = 1
+
+[node name="FrameLimitCheckButton" type="CheckButton" parent="TabContainer/Video/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="VDIV" type="VBoxContainer" parent="TabContainer/Video/Margin"]
+[node name="Border" type="NinePatchRect" parent="TabContainer/Video/BorderMargin"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/Video/Margin/VDIV"]
-layout_mode = 2
-text = "test"
-
-[node name="Label2" type="Label" parent="TabContainer/Video/Margin/VDIV"]
-layout_mode = 2
-text = "test"
-
-[node name="Label3" type="Label" parent="TabContainer/Video/Margin/VDIV"]
-layout_mode = 2
-text = "test"
-
-[node name="Label4" type="Label" parent="TabContainer/Video/Margin/VDIV"]
-layout_mode = 2
-text = "test"
+texture = ExtResource("1_6mo05")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="Audio" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 
+[node name="Margin" type="MarginContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/Margin"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="TabContainer/Audio/Margin/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+columns = 2
+
+[node name="SoundEnabledLabel" type="Label" parent="TabContainer/Audio/Margin/VBoxContainer/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sound Enabled"
+vertical_alignment = 1
+
+[node name="SoundEnabledCheck" type="CheckBox" parent="TabContainer/Audio/Margin/VBoxContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+button_pressed = true
+
+[node name="OutputLabel" type="Label" parent="TabContainer/Audio/Margin/VBoxContainer/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Output Device"
+vertical_alignment = 1
+
+[node name="OutputOptions" type="OptionButton" parent="TabContainer/Audio/Margin/VBoxContainer/Grid"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Default"
+popup/item_0/id = 1
+popup/item_1/text = "FakeDevice"
+popup/item_1/id = 0
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Audio/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Grid2" type="GridContainer" parent="TabContainer/Audio/Margin/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="TabContainer/Audio/Margin/VBoxContainer/Grid2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectsVolumeLabel" type="Label" parent="TabContainer/Audio/Margin/VBoxContainer/Grid2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Effects Volume
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolumeSlide" type="HSlider" parent="TabContainer/Audio/Margin/VBoxContainer/Grid2"]
+z_index = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+tick_count = 5
+
+[node name="EffectsVolumeSlide" type="HSlider" parent="TabContainer/Audio/Margin/VBoxContainer/Grid2"]
+z_index = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+tick_count = 5
+
+[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="TabContainer/Audio/BorderMargin"]
+layout_mode = 2
+texture = ExtResource("1_6mo05")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
 [node name="Interface" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Interface"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Grid" type="GridContainer" parent="TabContainer/Interface/Margin"]
+layout_mode = 2
+mouse_filter = 2
+columns = 4
+
+[node name="NameplatesLabel" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Show Nameplates"
+vertical_alignment = 1
+
+[node name="NameplatesCheck" type="CheckButton" parent="TabContainer/Interface/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="2Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Test Option 2"
+vertical_alignment = 1
+
+[node name="2Check" type="CheckButton" parent="TabContainer/Interface/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="3Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Test Option 3"
+vertical_alignment = 1
+
+[node name="3Check" type="CheckButton" parent="TabContainer/Interface/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="4Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Test Option 4"
+vertical_alignment = 1
+
+[node name="4Check" type="CheckButton" parent="TabContainer/Interface/Margin/Grid"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Interface"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="TabContainer/Interface/BorderMargin"]
+layout_mode = 2
+texture = ExtResource("1_6mo05")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
