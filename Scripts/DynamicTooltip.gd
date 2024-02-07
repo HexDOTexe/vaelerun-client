@@ -12,6 +12,5 @@ func _process(_delta):
 		self.global_position = get_viewport().get_mouse_position()
 
 func display_content(data):
-	content = get_node("/root/SceneManager/World/Map/"+data).get_tooltip()
+	content = get_node("/root/SceneManager/World/Map/"+data+"/TooltipData").get_tooltip()
 	label.text = content
-	pass

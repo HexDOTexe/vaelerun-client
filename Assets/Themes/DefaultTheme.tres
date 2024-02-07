@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://hbv855kdv7td" path="res://Assets/Textures/Interface/grad_ps2.png" id="2_m3mpw"]
 [ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="2_oxyrx"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="3_028jf"]
-[ext_resource type="Texture2D" uid="uid://dk2kt8fl0h5jg" path="res://Assets/Textures/Interface/bg_darker.png" id="5_gv6am"]
-[ext_resource type="Texture2D" uid="uid://v1j17vpcb1ro" path="res://Assets/Textures/Interface/container_minimal_gold_default.png" id="8_cbqvu"]
+[ext_resource type="Texture2D" uid="uid://c67lnwj1jecix" path="res://Assets/Textures/Interface/container_minimal_gold_darkest.png" id="8_6i7ac"]
+[ext_resource type="Texture2D" uid="uid://fdt7o6s2wwx8" path="res://Assets/Textures/Interface/container_minimal_gold_darker.png" id="8_eg1io"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17a5s"]
 
@@ -56,7 +56,11 @@ texture = ExtResource("2_m3mpw")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lfr5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dwbp"]
-texture = ExtResource("5_gv6am")
+texture = ExtResource("8_eg1io")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22nw5"]
 
@@ -80,7 +84,10 @@ content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 8.0
-texture = ExtResource("5_gv6am")
+texture = ExtResource("8_6i7ac")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uury4"]
 content_margin_left = 15.0
@@ -96,7 +103,7 @@ content_margin_left = 12.0
 content_margin_top = 10.0
 content_margin_right = 12.0
 content_margin_bottom = 10.0
-texture = ExtResource("8_cbqvu")
+texture = ExtResource("8_6i7ac")
 texture_margin_left = 6.0
 texture_margin_top = 6.0
 texture_margin_right = 6.0

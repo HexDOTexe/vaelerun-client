@@ -5,7 +5,7 @@ extends Node
 @onready var Overlay = preload("res://Scenes/Interface/Overlay.tscn")
 @onready var GameMenu = preload("res://Scenes/Interface/GameMenu.tscn")
 @onready var SystemMenu = preload("res://Scenes/Interface/SystemMenu.tscn")
-@onready var Tooltip = preload("res://Scenes/Interface/Tooltip.tscn")
+@onready var DynamicTooltip = preload("res://Scenes/Interface/DynamicTooltip.tscn")
 
 var active_menus = []
 var hovered_targets = []
@@ -22,19 +22,12 @@ func _ready():
 
 func _process(_delta):
 	if hovered_targets.is_empty() == false:
-		tooltip_active = true
+		display_tooltip()
 	else:
-		tooltip_active = false
-	display_tooltip()
-	hide_tooltip()
+		hide_tooltip()
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if hovered_targets.is_empty() == false:
-				selected_target = hovered_targets[0] 
-				#print("Mouse Click at: ", event.position)
-	elif event is InputEventKey:
+	if event is InputEventKey:
 		if event.is_action_pressed("ui_cancel"):
 			if active_menus.is_empty() == true:
 				open_specific_menu(GameMenu)
@@ -45,14 +38,14 @@ func _input(event):
 func start_canvas():
 	var new_canvas = CanvasLayer.new()
 	var new_debug_display = debug_display.instantiate()
-	var new_tooltip = Tooltip.instantiate()
+	var new_dynamic_tooltip = DynamicTooltip.instantiate()
 	var new_overlay = Overlay.instantiate()
 	new_canvas.name = "GUI"
 	new_overlay.visible = false
-	new_tooltip.visible = false
+	new_dynamic_tooltip.visible = false
 	add_child(new_canvas)
 	$GUI.add_child(new_debug_display)
-	$GUI.add_child(new_tooltip)
+	$GUI.add_child(new_dynamic_tooltip)
 	$GUI.add_child(new_overlay)
 
 func mouse_hover(target):
@@ -74,17 +67,14 @@ func hide_overlay():
 	$GUI/Overlay.visible = false
 
 func display_tooltip():
-	if tooltip_active == true:
-		var data = hovered_targets[0]
-		$GUI/Tooltip.display_content(data)
-		await get_tree().create_timer(tooltip_delay).timeout
-		$GUI/Tooltip.visible = true
-		
+	var data = hovered_targets.back()
+	$GUI/DynamicTooltip.display_content(data)
+	await get_tree().create_timer(tooltip_delay).timeout
+	$GUI/DynamicTooltip.visible = true
 
 func hide_tooltip():
-	if tooltip_active == false:
-		$GUI/Tooltip.visible = false
-		tooltip_active = false
+	$GUI/DynamicTooltip.visible = false
+	tooltip_active = false
 
 func open_specific_menu(menu):
 	var new_menu = menu.instantiate()

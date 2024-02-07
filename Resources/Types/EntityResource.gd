@@ -1,12 +1,12 @@
 extends Resource
-class_name Entity
+class_name EntityResource
 
-enum entity_states {IDLE, DEAD}
+enum EntityStates {IDLE, DEAD}
 
 # PROPERTIES
 @export var entity_index_id : int
 @export var entity_name : String
-@export var entity_state : entity_states
+@export var entity_state : EntityStates
 
 @export var health_maximum : int
 @export var health_current : int

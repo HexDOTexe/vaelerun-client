@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbe4s15b4gjc3"]
+[gd_scene load_steps=2 format=3 uid="uid://bbe4s15b4gjc3"]
 
-[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="1_6mo05"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_vrldc"]
 
 [node name="SystemMenu" type="Control"]
@@ -118,23 +117,6 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
 
-[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Video"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Border" type="NinePatchRect" parent="TabContainer/Video/BorderMargin"]
-layout_mode = 2
-texture = ExtResource("1_6mo05")
-region_rect = Rect2(0, 0, 128, 128)
-patch_margin_left = 24
-patch_margin_top = 24
-patch_margin_right = 24
-patch_margin_bottom = 24
-
 [node name="Audio" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -230,19 +212,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 tick_count = 5
 
-[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Audio"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Border" type="NinePatchRect" parent="TabContainer/Audio/BorderMargin"]
-layout_mode = 2
-texture = ExtResource("1_6mo05")
-region_rect = Rect2(0, 0, 128, 128)
-patch_margin_left = 24
-patch_margin_top = 24
-patch_margin_right = 24
-patch_margin_bottom = 24
-
 [node name="Interface" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -307,16 +276,3 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
-
-[node name="BorderMargin" type="MarginContainer" parent="TabContainer/Interface"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Border" type="NinePatchRect" parent="TabContainer/Interface/BorderMargin"]
-layout_mode = 2
-texture = ExtResource("1_6mo05")
-region_rect = Rect2(0, 0, 128, 128)
-patch_margin_left = 24
-patch_margin_top = 24
-patch_margin_right = 24
-patch_margin_bottom = 24

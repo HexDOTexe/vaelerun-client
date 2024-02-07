@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgpano0xrnlds"]
+[gd_scene load_steps=6 format=3 uid="uid://bgpano0xrnlds"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_h3clo"]
+[ext_resource type="Script" path="res://Scenes/Entities/PlayerNode.gd" id="1_130nj"]
 [ext_resource type="Texture2D" uid="uid://cmaet7rwdtarm" path="res://Assets/Sprites/PC.png" id="2_l63ml"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_x08dd"]
+[ext_resource type="Script" path="res://Scripts/TooltipData.gd" id="4_5slwj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
 radius = 8.0
@@ -11,7 +12,7 @@ radius = 8.0
 collision_layer = 2
 collision_mask = 9
 input_pickable = true
-script = ExtResource("1_h3clo")
+script = ExtResource("1_130nj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -38,7 +39,7 @@ enabled = false
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("3_x08dd")
 
-[node name="Tooltip" type="Control" parent="."]
+[node name="TooltipData" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +48,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tooltip_text = "test"
+mouse_filter = 1
+script = ExtResource("4_5slwj")
 
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

@@ -34,7 +34,12 @@ func _ready():
 func _physics_process(delta):
 	player_movement(delta)
 	define_player_state()
-	set_tooltip()
+
+func _on_hitbox_mouse_entered():
+	UserInterface.mouse_hover(self.name)
+
+func _on_hitbox_mouse_exited():
+	UserInterface.mouse_dehover(self.name)
 
 func define_player_state():
 	player_state = {"T": Time.get_unix_time_from_system(), "P": get_position()}
@@ -42,22 +47,6 @@ func define_player_state():
 
 func activate_camera():
 	$Camera.enabled = true
-
-func set_tooltip():
-	var content = ""
-	content += "[color=green][b]"+self.entity_name+"[/b][/color]" + "\n"
-	content += "Level "+str(self.entity_level)+" "+str(self.entity_class)+"\n"
-	$Tooltip.tooltip_text = content 
-
-func get_tooltip():
-	var tooltip_content = $Tooltip.tooltip_text
-	return tooltip_content
-
-func _on_hitbox_mouse_entered():
-	UserInterface.mouse_hover(self.name)
-
-func _on_hitbox_mouse_exited():
-	UserInterface.mouse_dehover(self.name)
 
 func update_player():
 	print("Function update_player called on local character - did client disconnect from server?")
