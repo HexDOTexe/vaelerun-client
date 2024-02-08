@@ -2,29 +2,30 @@ extends CharacterBody2D
 class_name Entity
 
 enum EntityStates {IDLE, DEAD}
+enum EntityType {PLAYER, OTHER_PLAYER, NPC, PROP}
 
 # PROPERTIES
-@export var entity_index_id : int
-@export var entity_type : String
-@export var entity_state : EntityStates
+var entity_index_id : int
+var entity_type : EntityType
+var entity_state : EntityStates
 
-@export var entity_name : String
-@export var entity_class : String
-@export var entity_level : int
+var entity_name : String
+var entity_class : String
+var entity_level : int
 
-@export var health_maximum : int
-@export var health_current : int
-@export var health_percent : int
+var health_maximum : int
+var health_current : int
+var health_percent : int
 
-@export var power_type : String
-@export var power_maximum : int
-@export var power_current : int
-@export var power_percent : int
+var power_type : String
+var power_maximum : int
+var power_current : int
+var power_percent : int
 
-@export var move_speed_base : int
-@export var move_speed_walking : int
-@export var move_speed_current : int
-@export var move_speed_maximum : int
+var move_speed_base : int
+var move_speed_walking : int
+var move_speed_current : int
+var move_speed_maximum : int
 
 #func _init(type, iName):
 #	entity_type = type

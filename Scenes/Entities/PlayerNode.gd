@@ -1,35 +1,20 @@
-extends CharacterBody2D
+extends Entity
 class_name Player
 
 # PROPERTIES
-var entity_type : String = "Player"
-var entity_state : String = "Idle"
-
-var entity_name : String = "Player"
-var entity_class : String = "Adventurer"
-var entity_level : int = 1
-
-var stat_health_maximum : int
-var stat_health_current : int
-var stat_health_percent : int
-
-var stat_power_type : String
-var stat_power_maximum : int
-var stat_power_current : int
-var stat_power_percent : int
-
-var stat_movement_speed_base : int
-var stat_movement_speed_walking : int
-var stat_movement_speed_current : int = 0
-var stat_movement_speed_maximum : int = 100
-var stat_movement_speed_acceleration : int = 240
-
 var client_character
 var movement_vector : Vector2
 var player_state
 
 func _ready():
 	set_physics_process(false)
+	# set default temp values until entity values can be loaded dynamically
+	entity_type = EntityType.PLAYER
+	entity_state = EntityStates.IDLE
+	entity_name = Server.temp_name
+	entity_class  = "Adventurer"
+	entity_level = 1
+	move_speed_maximum= 100
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -58,15 +43,14 @@ func player_movement(_delta):
 	movement_vector = movement_vector.normalized()
 	
 	if movement_vector == Vector2(0, 0):
-		stat_movement_speed_current = 0
+		move_speed_current = 0
 	else:
-		#stat_movement_speed_current += stat_movement_speed_acceleration * delta
-		stat_movement_speed_current = 100
-		if stat_movement_speed_current > stat_movement_speed_maximum:
-			stat_movement_speed_current = stat_movement_speed_maximum
+		move_speed_current = 100
+		if move_speed_current > move_speed_maximum:
+			move_speed_current = move_speed_maximum
 	
 	if movement_vector:
-		velocity = movement_vector * stat_movement_speed_current
+		velocity = movement_vector * move_speed_current
 	else:
 		velocity = movement_vector
 	

@@ -2,8 +2,8 @@ extends Entity
 class_name EntityNode
 
 func _ready():
-	# set default temp values until entity IDs can be loaded dynamically
-	entity_type = "NPC"
+	# set default temp values until entity values can be loaded dynamically
+	entity_type = EntityType.NPC
 	entity_state = EntityStates.IDLE
 	entity_name = "Warmech"
 	entity_class  = "Machine"

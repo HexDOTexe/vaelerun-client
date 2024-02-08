@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://b03y7x3vaojci"]
+[gd_resource type="Resource" script_class="EntityResource" load_steps=2 format=3 uid="uid://bikinwa2o5p2x"]
 
 [ext_resource type="Script" path="res://Resources/Types/EntityResource.gd" id="1_k1lo0"]
 
 [resource]
 script = ExtResource("1_k1lo0")
 entity_index_id = 1
-entity_name = "Warmech"
+entity_type = 2
 entity_state = 0
+entity_name = "Warmech"
+entity_class = "Machine"
+entity_level = 10
 health_maximum = 500
 health_current = 500
 health_percent = 100

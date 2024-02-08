@@ -87,7 +87,7 @@ func process_world_state_buffer(_delta):
 					continue
 				if $Map.has_node(str(player)):
 					var new_position = lerp(world_state_buffer[1][player]["P"], world_state_buffer[2][player]["P"], interpolation_factor)
-					get_node("./Map/" + str(player)).update_player(new_position)
+					get_node("./Map/" + str(player)).update_entity(new_position)
 				else:
 					#print("Spawning new player")
 					spawn_new_player(player, world_state_buffer[2][player]["P"])
@@ -114,7 +114,7 @@ func process_world_state_buffer(_delta):
 				if $Map.has_node(str(player)):
 					var position_delta = (world_state_buffer[1][player]["P"] - world_state_buffer[0][player]["P"])
 					var new_position = world_state_buffer[1][player]["P"] + (position_delta * estimation_factor)
-					get_node("./Map/" + str(player)).update_player(new_position)
+					get_node("./Map/" + str(player)).update_entity(new_position)
 
 # Don't use this! This is the NON-BUFFERED version of the world state update process. 
 # Player updates are processed in real-time as packets are receved (looks/feels bad)

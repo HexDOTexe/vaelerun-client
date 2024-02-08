@@ -1,22 +1,14 @@
-extends CharacterBody2D
+extends Entity
+class_name OtherPlayer
 
 # PROPERTIES
-var entity_type : String = "Player"
-var entity_state : String = "Idle"
 var player_id
 
-var entity_name : String = "Player"
-var entity_class : String = "Adventurer"
-var entity_level : int = 1
-
-func _physics_process(delta):
+func _ready():
+	# set default temp values until entity values can be loaded dynamically
+	entity_type = EntityType.OTHER_PLAYER
+	entity_state = EntityStates.IDLE
+	entity_name = "Other Player"
+	entity_class  = "Adventurer"
+	entity_level = 1
 	pass
-
-func _on_hitbox_mouse_entered():
-	UserInterface.mouse_hover(self.name)
-
-func _on_hitbox_mouse_exited():
-	UserInterface.mouse_dehover(self.name)
-
-func update_player(new_position):
-	self.position = new_position
