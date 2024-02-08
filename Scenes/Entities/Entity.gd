@@ -45,3 +45,6 @@ func _on_hitbox_mouse_exited():
 
 func update_entity(new_position):
 	self.position = new_position
+
+func update_entity_name(new_name):
+	self.entity_name = new_name

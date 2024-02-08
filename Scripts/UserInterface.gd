@@ -16,6 +16,8 @@ var tooltip_active : bool = false
 # USER SETTINGS
 var tooltip_follows_cursor : bool = true
 var tooltip_delay : float = 0.1
+var nameplates_show_all : bool = true
+var nameplates_show_self : bool = true
 
 func _ready():
 	start_canvas()
@@ -25,6 +27,9 @@ func _process(_delta):
 		display_tooltip()
 	else:
 		hide_tooltip()
+
+func _physics_process(delta):
+	pass
 
 func _input(event):
 	if event is InputEventKey:

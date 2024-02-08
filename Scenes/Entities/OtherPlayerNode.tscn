@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://yur65rw8iowh"]
+[gd_scene load_steps=6 format=3 uid="uid://yur65rw8iowh"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/OtherPlayerNode.gd" id="1_0flso"]
 [ext_resource type="Texture2D" uid="uid://b5onpnhuqsy57" path="res://Assets/Sprites/OtherPC.png" id="2_qj4t2"]
 [ext_resource type="Script" path="res://Scripts/TooltipData.gd" id="3_w02st"]
+[ext_resource type="Script" path="res://Scenes/Interface/Nameplate.gd" id="4_sxbkl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
 radius = 8.0
 
-[node name="OtherPlayerNode" type="CharacterBody2D"]
+[node name="OtherPlayerNode" type="CharacterBody2D" groups=["entities", "players"]]
 collision_layer = 2
 collision_mask = 9
 input_pickable = true
@@ -44,6 +45,20 @@ tooltip_text = "test"
 mouse_filter = 1
 script = ExtResource("3_w02st")
 tooltip_type = 1
+
+[node name="Nameplate" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_top = -100.368
+offset_right = 15.0
+offset_bottom = -77.3678
+grow_horizontal = 2
+text = "NAMEPLATE"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_sxbkl")
 
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

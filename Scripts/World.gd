@@ -86,8 +86,10 @@ func process_world_state_buffer(_delta):
 				if !world_state_buffer[1].has(player):
 					continue
 				if $Map.has_node(str(player)):
+					var entity_name = world_state_buffer[2][player]["Name"]
 					var new_position = lerp(world_state_buffer[1][player]["P"], world_state_buffer[2][player]["P"], interpolation_factor)
 					get_node("./Map/" + str(player)).update_entity(new_position)
+					get_node("./Map/" + str(player)).update_entity_name(entity_name)
 				else:
 					#print("Spawning new player")
 					spawn_new_player(player, world_state_buffer[2][player]["P"])
@@ -119,13 +121,13 @@ func process_world_state_buffer(_delta):
 # Don't use this! This is the NON-BUFFERED version of the world state update process. 
 # Player updates are processed in real-time as packets are receved (looks/feels bad)
 # Keeping this here mostly as a reminder as to how the pre-buffer code works.
-func OLD_update_world_state(world_state):
-	if world_state["T"] > local_world_state:
-		local_world_state = world_state["T"]
-		world_state.erase(multiplayer.get_unique_id())
-		for player in world_state.keys():
-			if $Map.has_node(str(player)):
-				get_node("./Map/" + str(player)).update_player(world_state[player]["P"])
-			else:
-				print("Spawning new player")
-				spawn_new_player(player, world_state[player]["P"])
+#func OLD_update_world_state(world_state):
+	#if world_state["T"] > local_world_state:
+		#local_world_state = world_state["T"]
+		#world_state.erase(multiplayer.get_unique_id())
+		#for player in world_state.keys():
+			#if $Map.has_node(str(player)):
+				#get_node("./Map/" + str(player)).update_player(world_state[player]["P"])
+			#else:
+				#print("Spawning new player")
+				#spawn_new_player(player, world_state[player]["P"])
