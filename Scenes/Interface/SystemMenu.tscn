@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbe4s15b4gjc3"]
+[gd_scene load_steps=3 format=3 uid="uid://bbe4s15b4gjc3"]
 
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_vrldc"]
+[ext_resource type="Script" path="res://Scripts/SystemMenu.gd" id="2_8ef5c"]
 
 [node name="SystemMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("1_vrldc")
+script = ExtResource("2_8ef5c")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -32,8 +34,10 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_vrldc")
 tab_alignment = 1
+current_tab = 2
 
 [node name="Video" type="PanelContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="TabContainer/Video"]
@@ -213,7 +217,6 @@ size_flags_vertical = 1
 tick_count = 5
 
 [node name="Interface" type="PanelContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="TabContainer/Interface"]
@@ -240,30 +243,33 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+button_pressed = true
 
-[node name="2Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+[node name="SelfNameplateLabel" type="Label" parent="TabContainer/Interface/Margin/Grid"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Test Option 2"
+text = "Show Own Nameplate"
 vertical_alignment = 1
 
-[node name="2CheckBox" type="CheckBox" parent="TabContainer/Interface/Margin/Grid"]
+[node name="SelfNameplateCheckBox" type="CheckBox" parent="TabContainer/Interface/Margin/Grid"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+button_pressed = true
 
-[node name="3Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
+[node name="TooltipOnCursorLabel" type="Label" parent="TabContainer/Interface/Margin/Grid"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Test Option 3"
+text = "Tooltips Follow Cursor"
 vertical_alignment = 1
 
-[node name="3CheckBox" type="CheckBox" parent="TabContainer/Interface/Margin/Grid"]
+[node name="TooltipOnCursorCheckBox" type="CheckBox" parent="TabContainer/Interface/Margin/Grid"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+button_pressed = true
 
 [node name="4Label" type="Label" parent="TabContainer/Interface/Margin/Grid"]
 custom_minimum_size = Vector2(0, 35)
@@ -276,3 +282,13 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+
+[connection signal="item_selected" from="TabContainer/Video/Margin/Grid/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
+[connection signal="toggled" from="TabContainer/Video/Margin/Grid/ResolutionOptions" to="." method="_on_resolution_options_toggled"]
+[connection signal="item_selected" from="TabContainer/Video/Margin/Grid/DisplayOptions" to="." method="_on_display_options_item_selected"]
+[connection signal="toggled" from="TabContainer/Video/Margin/Grid/VsyncCheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="toggled" from="TabContainer/Video/Margin/Grid/FrameLimitCheckBox" to="." method="_on_frame_limit_check_box_toggled"]
+[connection signal="toggled" from="TabContainer/Audio/Margin/VDIV/Grid/SoundEnabledCheckBox" to="." method="_on_sound_enabled_check_box_toggled"]
+[connection signal="toggled" from="TabContainer/Interface/Margin/Grid/NameplatesCheckBox" to="." method="_on_nameplates_check_box_toggled"]
+[connection signal="toggled" from="TabContainer/Interface/Margin/Grid/SelfNameplateCheckBox" to="." method="_on_self_nameplate_check_box_toggled"]
+[connection signal="toggled" from="TabContainer/Interface/Margin/Grid/TooltipOnCursorCheckBox" to="." method="_on_tooltip_on_cursor_check_box_toggled"]

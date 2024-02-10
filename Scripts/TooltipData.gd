@@ -2,9 +2,7 @@ extends Control
 
 enum TooltipTypes {PLAYER, OTHER_PLAYER, NPC, PROP}
 
-@export var tooltip_type : TooltipTypes
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	refresh_tooltip_content()
 
 #func refresh_tooltip_content():

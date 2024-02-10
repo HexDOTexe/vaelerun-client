@@ -146,6 +146,7 @@ LineEdit/font_sizes/font_size = 18
 LineEdit/fonts/font = ExtResource("1_q8e6v")
 LineEdit/styles/focus = SubResource("StyleBoxEmpty_5lfr5")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_1dwbp")
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/bold_font_size = 22
 RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/bold_font = ExtResource("1_6sc5c")

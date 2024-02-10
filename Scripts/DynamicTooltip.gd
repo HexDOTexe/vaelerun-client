@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 func _process(_delta):
-	if UserInterface.tooltip_follows_cursor == true:
+	if Settings.tooltip_follows_cursor == true:
 		self.global_position = get_viewport().get_mouse_position()
 
 func display_content(data):

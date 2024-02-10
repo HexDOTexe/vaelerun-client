@@ -8,16 +8,13 @@ extends Node
 @onready var DynamicTooltip = preload("res://Scenes/Interface/DynamicTooltip.tscn")
 
 var active_menus = []
+var registered_nameplates = []
+var active_nameplates = []
 var hovered_targets = []
 var selected_target
 var focused_target
+var overlay_active : bool = false
 var tooltip_active : bool = false
-
-# USER SETTINGS
-var tooltip_follows_cursor : bool = true
-var tooltip_delay : float = 0.1
-var nameplates_show_all : bool = true
-var nameplates_show_self : bool = true
 
 func _ready():
 	start_canvas()
@@ -28,7 +25,7 @@ func _process(_delta):
 	else:
 		hide_tooltip()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 func _input(event):
@@ -46,6 +43,7 @@ func start_canvas():
 	var new_dynamic_tooltip = DynamicTooltip.instantiate()
 	var new_overlay = Overlay.instantiate()
 	new_canvas.name = "GUI"
+	new_canvas.layer = 2
 	new_overlay.visible = false
 	new_dynamic_tooltip.visible = false
 	add_child(new_canvas)
@@ -67,14 +65,16 @@ func deselect_target():
 
 func display_overlay():
 	$GUI/Overlay.visible = true
+	overlay_active = true
 
 func hide_overlay():
 	$GUI/Overlay.visible = false
+	overlay_active = false
 
 func display_tooltip():
 	var data = hovered_targets.back()
 	$GUI/DynamicTooltip.display_content(data)
-	await get_tree().create_timer(tooltip_delay).timeout
+	await get_tree().create_timer(Settings.tooltip_delay).timeout
 	$GUI/DynamicTooltip.visible = true
 
 func hide_tooltip():

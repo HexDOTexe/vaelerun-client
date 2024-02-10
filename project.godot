@@ -20,6 +20,7 @@ config/icon="res://Assets/Editor/vael_client.png"
 
 Server="*res://Scripts/Server.gd"
 UserInterface="*res://Scripts/UserInterface.gd"
+Settings="*res://Scripts/Settings.gd"
 
 [display]
 
