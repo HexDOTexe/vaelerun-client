@@ -1,7 +1,7 @@
 extends Control
 
-@onready var ResolutionOptions = $TabContainer/Video/Margin/Grid/ResolutionOptions
 @onready var DisplayOptions = $TabContainer/Video/Margin/Grid/DisplayOptions
+@onready var ResolutionOptions = $TabContainer/Video/Margin/Grid/ResolutionOptions
 @onready var VsyncCheckBox = $TabContainer/Video/Margin/Grid/VsyncCheckBox
 @onready var FrameLimitCheckBox = $TabContainer/Video/Margin/Grid/FrameLimitCheckBox
 @onready var SoundEnabledCheckBox = $TabContainer/Audio/Margin/VDIV/Grid/SoundEnabledCheckBox
@@ -19,6 +19,10 @@ func _ready():
 func check_settings():
 	# update menu so that it displays selections accurate to loaded or default settings
 	# Video
+	if Settings.display_mode == Settings.DisplayModes.FULLSCREEN:
+		DisplayOptions.selected = 0
+	elif Settings.display_mode == Settings.DisplayModes.WINDOWED:
+		DisplayOptions.selected = 1
 	VsyncCheckBox.button_pressed = Settings.vsync_enabled
 	FrameLimitCheckBox.button_pressed = Settings.frame_limit_enabled
 	# Sound
@@ -30,16 +34,37 @@ func check_settings():
 
 #region VIDEO OPTIONS
 func _on_resolution_options_item_selected(index):
-	pass # Replace with function body.
+	match index:
+		0:
+			Settings.base_window_size = Vector2(2560, 1440)
+			print("change resolution to 2560 x 1440")
+		1:
+			Settings.base_window_size = Vector2(1920, 1080)
+			print("change resolution to 1920 x 1080")
+		2:
+			Settings.base_window_size = Vector2(1280, 720)
+			print("change resolution to 1280 x 720")
 
 func _on_display_options_item_selected(index):
-	pass # Replace with function body.
+	match index:
+		0:	# Fullscreen
+			Settings.display_mode = Settings.DisplayModes.FULLSCREEN
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+				print("change display mode to fullscreen")
+		1:	# Windowed
+			Settings.display_mode = Settings.DisplayModes.WINDOWED
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				print("change display mode to windowed")
 
 func _on_vsync_check_box_toggled(toggled_on):
 	if toggled_on == true:
 		Settings.vsync_enabled = true
+		print("change vsync to enabled")
 	else:
 		Settings.vsync_enabled = false
+		print("change vsync to disabled")
 
 func _on_frame_limit_check_box_toggled(toggled_on):
 	if toggled_on == true:

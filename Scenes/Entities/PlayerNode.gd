@@ -14,6 +14,12 @@ func _ready():
 	entity_name = Server.temp_name
 	entity_class  = "Adventurer"
 	entity_level = 1
+	health_maximum = 999
+	health_current = 999
+	health_percent = 100
+	power_maximum = 99
+	power_current = 99
+	power_percent = 100
 	move_speed_maximum= 100
 
 func _physics_process(delta):
