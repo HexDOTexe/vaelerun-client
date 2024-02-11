@@ -1,6 +1,6 @@
 extends Node
 
-@onready var test_map = preload("res://Scenes/Maps/Test/TestMap.tscn")
+@onready var test_map = preload("res://Scenes/Maps/Test/TestMap2.tscn")
 @onready var player_node = preload("res://Scenes/Entities/PlayerNode.tscn")
 @onready var other_player_node = preload("res://Scenes/Entities/OtherPlayerNode.tscn")
 @onready var entity_node = preload("res://Scenes/Entities/EntityNode.tscn")

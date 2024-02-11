@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scenes/Entities/EntityNode.gd" id="1_uuk4d"]
 [ext_resource type="Texture2D" uid="uid://dcawaspbgp2bp" path="res://Assets/Sprites/Entity.png" id="2_xfxe5"]
-[ext_resource type="Script" path="res://Scripts/TooltipData.gd" id="3_yjfp7"]
+[ext_resource type="Script" path="res://Scripts/Interface/TooltipData.gd" id="3_yc2fv"]
+[ext_resource type="Script" path="res://Scripts/Interface/Nameplate.gd" id="4_or3kp"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="4_vpgy7"]
-[ext_resource type="Script" path="res://Scripts/Nameplate.gd" id="5_de27w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
-radius = 26.0
+radius = 20.0
 
 [node name="EntityNode" type="CharacterBody2D" groups=["entities", "npc"]]
 collision_layer = 4
@@ -18,7 +18,7 @@ script = ExtResource("1_uuk4d")
 [node name="Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 3.75)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("2_xfxe5")
 offset = Vector2(0, -17.6666)
 
@@ -27,6 +27,8 @@ scale = Vector2(2, 0.5)
 shape = SubResource("CircleShape2D_bismq")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-0.530319, 2.65165)
+scale = Vector2(0.66, 0.66)
 collision_layer = 2048
 collision_mask = 2048
 
@@ -45,42 +47,62 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tooltip_text = "test"
 mouse_filter = 1
-script = ExtResource("3_yjfp7")
+script = ExtResource("3_yc2fv")
 
-[node name="Name" type="Control" parent="." node_paths=PackedStringArray("nameplate")]
+[node name="Name" type="Control" parent="." node_paths=PackedStringArray("nameplate", "nameplate_label")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -106.0
-offset_right = 20.0
-offset_bottom = -66.0
+offset_top = -90.0
+offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-script = ExtResource("5_de27w")
-nameplate = NodePath("Canvas/NamePlate")
+script = ExtResource("4_or3kp")
+nameplate = NodePath("Canvas/Nameplate")
+nameplate_label = NodePath("Canvas/Nameplate/NameplateLabel")
 
 [node name="Canvas" type="CanvasLayer" parent="Name"]
+follow_viewport_scale = 0.0
 
-[node name="NamePlate" type="RichTextLabel" parent="Name/Canvas"]
+[node name="Nameplate" type="Control" parent="Name/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -90.0
+offset_bottom = -90.0
+
+[node name="NameplateLabel" type="RichTextLabel" parent="Name/Canvas/Nameplate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -106.0
-offset_right = 23.0
-offset_bottom = -66.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 10)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("4_vpgy7")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "testw"
+text = "-------"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

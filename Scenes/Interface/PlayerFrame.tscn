@@ -1,28 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://btavrdgbok5hi"]
+[gd_scene load_steps=6 format=3 uid="uid://btavrdgbok5hi"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerFrame.gd" id="1_akjqe"]
+[ext_resource type="Script" path="res://Scripts/Interface/PlayerFrame.gd" id="1_by4u6"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_7oo0w"]
+[ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="2_8if6y"]
 [ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_ysleh"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="7_0bght"]
 
 [node name="PlayerFrame" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 25.0
 mouse_filter = 2
-script = ExtResource("1_akjqe")
+script = ExtResource("1_by4u6")
 
 [node name="FrameBorder" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+layout_mode = 1
+offset_right = 379.0
+offset_bottom = 104.0
+mouse_filter = 0
 mouse_default_cursor_shape = 2
+texture = ExtResource("2_8if6y")
 
-[node name="PortraitBG" type="TextureRect" parent="."]
+[node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
@@ -40,10 +42,10 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 104.0
 offset_top = 36.0
-offset_right = 454.0
+offset_right = 374.0
 offset_bottom = 71.0
 tooltip_text = "Your remaining health."
-mouse_filter = 0
+mouse_filter = 2
 theme = ExtResource("7_0bght")
 value = 52.0
 nine_patch_stretch = true
@@ -52,19 +54,30 @@ texture_progress = ExtResource("3_ysleh")
 tint_progress = Color(0.313726, 0.682353, 0, 1)
 
 [node name="ValueLabel" type="Label" parent="Health/Bar"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 4.0
-offset_right = 63.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_vertical = 2
 text = "9999"
 
 [node name="PercentLabel" type="Label" parent="Health/Bar"]
-layout_mode = 0
-offset_left = 294.0
-offset_top = 4.0
-offset_right = 338.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -11.5
+offset_right = -10.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
 text = "100%"
 horizontal_alignment = 2
 
@@ -77,10 +90,10 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 104.0
 offset_top = 74.0
-offset_right = 454.0
-offset_bottom = 94.0
+offset_right = 374.0
+offset_bottom = 91.0
 tooltip_text = "Your remaining mana."
-mouse_filter = 0
+mouse_filter = 2
 theme = ExtResource("7_0bght")
 value = 51.0
 rounded = true
@@ -90,19 +103,33 @@ texture_progress = ExtResource("3_ysleh")
 tint_progress = Color(0.0941176, 0, 0.929412, 1)
 
 [node name="ValueLabel" type="Label" parent="Power/Bar"]
-offset_left = 15.0
-offset_top = -3.0
-offset_right = 63.0
-offset_bottom = 20.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_vertical = 2
 text = "9999"
 
 [node name="PercentLabel" type="Label" parent="Power/Bar"]
-offset_left = 294.0
-offset_top = 1.0
-offset_right = 338.0
-offset_bottom = 24.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -10.5
+offset_right = -10.0
+offset_bottom = 12.5
+grow_horizontal = 0
+grow_vertical = 2
 text = "100%"
-horizontal_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Name" type="Control" parent="."]
 anchors_preset = 0
@@ -117,3 +144,7 @@ offset_right = 252.0
 offset_bottom = 30.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Placeholder Name"
+
+[connection signal="gui_input" from="FrameBorder" to="." method="_on_frame_border_gui_input"]
+[connection signal="mouse_entered" from="FrameBorder" to="." method="_on_frame_border_mouse_entered"]
+[connection signal="mouse_exited" from="FrameBorder" to="." method="_on_frame_border_mouse_exited"]

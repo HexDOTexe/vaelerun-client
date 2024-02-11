@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2cyvaohri2d4"]
 
-[ext_resource type="Script" path="res://Scripts/LoginMenu.gd" id="1_rbbpd"]
+[ext_resource type="Script" path="res://Scripts/Interface/LoginMenu.gd" id="1_rbbpd"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_xk24a"]
 [ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_s2cq3"]
 

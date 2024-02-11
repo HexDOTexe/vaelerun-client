@@ -3,12 +3,13 @@ extends Control
 enum NameplateTypes {PLAYER, OTHER_PLAYER, NPC, PROP}
 
 @onready var plate_position = str(get_parent().get_global_transform_with_canvas().origin)
-@export var nameplate : RichTextLabel
+@export var nameplate : Control
+@export var nameplate_label : RichTextLabel
 
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if UserInterface.overlay_active == true:
 		$Canvas.visible = true
 	else:
@@ -21,22 +22,22 @@ func _physics_process(_delta):
 func set_nameplate():
 	if Settings.nameplates_show_all == true:
 		var type = get_parent().entity_type
-		nameplate.position =  get_global_transform_with_canvas().origin
+		nameplate.position = get_global_transform_with_canvas().origin
 		match type:
 			NameplateTypes.PLAYER:
 				if Settings.nameplates_show_self == true:
 					var content = ""
 					content += "[color=green][b]"+get_parent().entity_name+"[/b][/color]" + "\n"
-					nameplate.text = content
+					nameplate_label.text = content
 				else:
-					nameplate.text = ""
+					nameplate_label.text = ""
 			NameplateTypes.OTHER_PLAYER:
 				var content = ""
 				content += "[color=yellow][b]"+get_parent().entity_name+"[/b][/color]" + "\n"
-				nameplate.text = content
+				nameplate_label.text = content
 			NameplateTypes.NPC:
 				var content = ""
 				content += "[color=red][b]"+get_parent().entity_name+"[/b][/color]" + "\n"
-				nameplate.text = content
+				nameplate_label.text = content
 	else:
 		nameplate.text = ""

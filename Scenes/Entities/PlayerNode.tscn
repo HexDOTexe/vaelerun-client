@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgpano0xrnlds"]
+[gd_scene load_steps=9 format=3 uid="uid://bgpano0xrnlds"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/PlayerNode.gd" id="1_130nj"]
 [ext_resource type="Texture2D" uid="uid://cmaet7rwdtarm" path="res://Assets/Sprites/PC.png" id="2_l63ml"]
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_x08dd"]
-[ext_resource type="Script" path="res://Scripts/TooltipData.gd" id="4_5slwj"]
+[ext_resource type="Script" path="res://Scripts/Interface/Camera.gd" id="3_6lvou"]
+[ext_resource type="Script" path="res://Scripts/Interface/TooltipData.gd" id="4_1mvac"]
+[ext_resource type="Script" path="res://Scripts/Interface/Nameplate.gd" id="5_0lta1"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="5_13yog"]
-[ext_resource type="Script" path="res://Scripts/Nameplate.gd" id="6_d74q6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bismq"]
-radius = 8.0
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn4lc"]
+size = Vector2(19, 24)
 
 [node name="PlayerNode" type="CharacterBody2D" groups=["entities", "players", "self"]]
 collision_layer = 2
@@ -18,7 +21,6 @@ script = ExtResource("1_130nj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(3, 3)
 texture = ExtResource("2_l63ml")
 centered = false
 offset = Vector2(-10, -21.6663)
@@ -31,15 +33,15 @@ shape = SubResource("CircleShape2D_bismq")
 collision_layer = 2048
 collision_mask = 2048
 
-[node name="Area" type="CollisionPolygon2D" parent="Hitbox"]
-position = Vector2(0, -19)
-polygon = PackedVector2Array(-24, 5, -24, -10, -21, -10, -21, -19, -18, -19, -18, -22, -30, -22, -30, -25, -27, -25, -27, -28, -21, -28, -21, -31, -18, -31, -18, -34, -15, -34, -15, -43, -12, -43, -12, -46, 15, -46, 15, -43, 18, -43, 18, -40, 21, -40, 21, -34, 18, -34, 18, -31, 15, -31, 15, -22, 18, -22, 18, -19, 21, -19, 21, -10, 18, -10, 18, -7, 21, -7, 21, 5, 24, 5, 24, 14, 27, 14, 27, 20, 30, 20, 30, 23, -18, 23, -18, 20, -21, 20, -21, 5)
+[node name="Area" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_bn4lc")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -24)
 enabled = false
-zoom = Vector2(1.5, 1.5)
-script = ExtResource("3_x08dd")
+zoom = Vector2(3.5, 3.5)
+script = ExtResource("3_6lvou")
 
 [node name="TooltipData" type="Control" parent="."]
 layout_mode = 3
@@ -52,38 +54,56 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tooltip_text = "test"
 mouse_filter = 1
-script = ExtResource("4_5slwj")
+script = ExtResource("4_1mvac")
 
-[node name="Name" type="Control" parent="." node_paths=PackedStringArray("nameplate")]
+[node name="Name" type="Control" parent="." node_paths=PackedStringArray("nameplate", "nameplate_label")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -106.0
-offset_right = 20.0
-offset_bottom = -66.0
+offset_top = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-script = ExtResource("6_d74q6")
-nameplate = NodePath("Canvas/NamePlate")
+script = ExtResource("5_0lta1")
+nameplate = NodePath("Canvas/Nameplate")
+nameplate_label = NodePath("Canvas/Nameplate/NameplateLabel")
 
 [node name="Canvas" type="CanvasLayer" parent="Name"]
+follow_viewport_scale = 0.0
 
-[node name="NamePlate" type="RichTextLabel" parent="Name/Canvas"]
-offset_left = -23.0
-offset_top = -106.0
-offset_right = 26.0
-offset_bottom = -66.0
+[node name="Nameplate" type="Control" parent="Name/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -30.0
+offset_bottom = -30.0
+
+[node name="NameplateLabel" type="RichTextLabel" parent="Name/Canvas/Nameplate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 10)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("5_13yog")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "testw"
+text = "-------"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

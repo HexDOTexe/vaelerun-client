@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dnxuip338frr2" path="res://Scenes/Interface/TargetFrame.tscn" id="2_ij2uk"]
 
 [node name="Overlay" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,20 +15,7 @@ mouse_filter = 2
 
 [node name="PlayerFrame" parent="." instance=ExtResource("1_imi5h")]
 layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 1
-grow_vertical = 1
 mouse_default_cursor_shape = 2
 
 [node name="TargetFrame" parent="." instance=ExtResource("2_ij2uk")]
 layout_mode = 1
-offset_left = -25.0
-offset_top = 25.0
-offset_right = -25.0
-offset_bottom = 25.0

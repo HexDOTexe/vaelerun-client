@@ -20,6 +20,15 @@ func _gui_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			print("player frame")
 
+func _on_frame_border_gui_input(event):
+	pass # Replace with function body.
+
+func _on_frame_border_mouse_entered():
+	UserInterface.mouse_hover(Server.local_client_id)
+
+func _on_frame_border_mouse_exited():
+	UserInterface.mouse_dehover(Server.local_client_id)
+
 func refresh_elements():
 	if UserInterface.overlay_active == true:
 		update_name()
@@ -37,7 +46,7 @@ func update_health():
 	health_current = character.health_current
 	health_percent = character.health_percent
 	$Health/Bar.value = health_current
-	$Health/Bar/ValueLabel.text = str(health_current)+"/"+str(health_maximum)
+	$Health/Bar/ValueLabel.text = str(health_current)+" / "+str(health_maximum)
 
 func update_power():
 	var client = str(Server.local_client_id)
@@ -46,5 +55,4 @@ func update_power():
 	power_current = character.power_current
 	power_percent = character.power_percent
 	$Power/Bar.value = power_current
-	$Power/Bar/ValueLabel.text = str(power_current)+"/"+str(power_maximum)
-	pass
+	$Power/Bar/ValueLabel.text = str(power_current)+" / "+str(power_maximum)

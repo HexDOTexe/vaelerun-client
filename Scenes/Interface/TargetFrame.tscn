@@ -1,17 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnxuip338frr2"]
+[gd_scene load_steps=6 format=3 uid="uid://dnxuip338frr2"]
 
+[ext_resource type="Script" path="res://Scripts/Interface/TargetFrame.gd" id="1_0tqhh"]
 [ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="1_ig1pt"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_daxsy"]
 [ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_3a1e3"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="4_ij5ty"]
 
 [node name="TargetFrame" type="Control"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 25.0
 grow_horizontal = 0
-mouse_filter = 1
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
+script = ExtResource("1_0tqhh")
 
 [node name="FrameBorder" type="TextureRect" parent="."]
 layout_mode = 1
@@ -21,36 +27,91 @@ anchor_right = 1.0
 offset_left = -379.0
 offset_bottom = 104.0
 grow_horizontal = 0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
 texture = ExtResource("1_ig1pt")
 flip_h = true
 
-[node name="HealthBar" type="TextureProgressBar" parent="FrameBorder"]
-z_index = -1
+[node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -47.0
+offset_right = -5.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_daxsy")
+expand_mode = 1
+
+[node name="Health" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bar" type="TextureProgressBar" parent="Health"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = -374.0
 offset_top = 36.0
-offset_right = 275.0
+offset_right = -104.0
 offset_bottom = 71.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-value = 100.0
-rounded = true
+tooltip_text = "Your remaining health."
+mouse_filter = 2
+theme = ExtResource("4_ij5ty")
+value = 52.0
 fill_mode = 1
 nine_patch_stretch = true
 texture_under = ExtResource("2_daxsy")
 texture_progress = ExtResource("3_3a1e3")
 tint_progress = Color(0.313726, 0.682353, 0, 1)
 
-[node name="PowerBar" type="TextureProgressBar" parent="FrameBorder"]
-z_index = -1
+[node name="ValueLabel" type="Label" parent="Health/Bar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "9999"
+
+[node name="PercentLabel" type="Label" parent="Health/Bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -11.5
+offset_right = -10.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Power" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bar" type="TextureProgressBar" parent="Power"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = -374.0
 offset_top = 74.0
-offset_right = 275.0
+offset_right = -104.0
 offset_bottom = 91.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-value = 100.0
+tooltip_text = "Your remaining mana."
+mouse_filter = 2
+theme = ExtResource("4_ij5ty")
+value = 51.0
 rounded = true
 fill_mode = 1
 nine_patch_stretch = true
@@ -58,20 +119,48 @@ texture_under = ExtResource("2_daxsy")
 texture_progress = ExtResource("3_3a1e3")
 tint_progress = Color(0.0941176, 0, 0.929412, 1)
 
-[node name="NameLabel" type="Label" parent="FrameBorder"]
+[node name="ValueLabel" type="Label" parent="Power/Bar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -12.5
+offset_right = 58.0
+offset_bottom = 10.5
+grow_vertical = 2
+text = "9999"
+
+[node name="PercentLabel" type="Label" parent="Power/Bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -9.5
+offset_right = -10.0
+offset_bottom = 13.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Name" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="Name"]
 layout_mode = 0
-offset_left = 127.0
+offset_left = -252.0
 offset_top = 5.0
-offset_right = 269.0
+offset_right = -110.0
 offset_bottom = 28.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Placeholder Name"
 
-[node name="PortraitBG" type="TextureRect" parent="FrameBorder"]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 5.0
-offset_right = 374.0
-offset_bottom = 99.0
-texture = ExtResource("2_daxsy")
-expand_mode = 1
+[connection signal="gui_input" from="FrameBorder" to="." method="_on_frame_border_gui_input"]
+[connection signal="mouse_entered" from="FrameBorder" to="." method="_on_frame_border_mouse_entered"]
+[connection signal="mouse_exited" from="FrameBorder" to="." method="_on_frame_border_mouse_exited"]

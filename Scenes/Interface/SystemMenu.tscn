@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbe4s15b4gjc3"]
 
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_vrldc"]
-[ext_resource type="Script" path="res://Scripts/SystemMenu.gd" id="2_8ef5c"]
+[ext_resource type="Script" path="res://Scripts/Interface/SystemMenu.gd" id="2_v7ge3"]
 
 [node name="SystemMenu" type="Control"]
+z_index = 4
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,7 +17,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("1_vrldc")
-script = ExtResource("2_8ef5c")
+script = ExtResource("2_v7ge3")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1

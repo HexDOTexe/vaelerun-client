@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://14bepp76evuw"]
 
+[ext_resource type="Script" path="res://Scripts/Interface/GameMenu.gd" id="1_12w7y"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_i1ece"]
-[ext_resource type="Script" path="res://Scripts/GameMenu.gd" id="1_ppu2g"]
 
 [node name="GameMenu" type="Control"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_ppu2g")
+script = ExtResource("1_12w7y")
 
 [node name="MenuPanel" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(180, 0)

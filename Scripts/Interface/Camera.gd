@@ -1,8 +1,8 @@
 extends Camera2D
 
-var camera_zoom_max = Vector2(1.0, 1.0)
+var camera_zoom_max = Vector2(2.0, 2.0)
 var camera_zoom_min = Vector2(5.0, 5.0)
-var camera_zoom_current = Vector2(1.5, 1.5)
+var camera_zoom_current = Vector2(3.5, 3.5)
 var camera_zoom_previous : Vector2
 
 func _process(_delta):
