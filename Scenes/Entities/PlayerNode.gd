@@ -1,5 +1,6 @@
 extends Entity
 class_name Player
+# PLAYER NODE
 
 # PROPERTIES
 var client_character
@@ -32,6 +33,12 @@ func _on_hitbox_mouse_entered():
 func _on_hitbox_mouse_exited():
 	UserInterface.mouse_dehover(self.name)
 
+func _on_hitbox_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			UserInterface.select_target(self)
+			print("clicked on "+self.name)
+
 func define_player_state():
 	player_state = {"T": Time.get_unix_time_from_system(), "P": get_position()}
 	Server.send_player_state(player_state)
@@ -61,3 +68,6 @@ func player_movement(_delta):
 		velocity = movement_vector
 	
 	move_and_slide()
+
+
+

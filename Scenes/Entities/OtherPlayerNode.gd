@@ -12,3 +12,9 @@ func _ready():
 	entity_class  = "Adventurer"
 	entity_level = 1
 	pass
+
+func _on_hitbox_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			UserInterface.select_target(self)
+			print("clicked on "+self.name)

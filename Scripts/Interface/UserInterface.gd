@@ -30,9 +30,13 @@ func _physics_process(_delta):
 
 func _input(event):
 	if event is InputEventKey:
+		# ESC / Cancel keybind for closing menus
 		if event.is_action_pressed("ui_cancel"):
 			if active_menus.is_empty() == true:
-				open_specific_menu(GameMenu)
+				if !selected_target:
+					open_specific_menu(GameMenu)
+				else:
+					deselect_target()
 			else:
 				var last_menu = active_menus.size() - 1
 				close_specific_menu(active_menus[last_menu])
@@ -57,11 +61,15 @@ func mouse_hover(target):
 func mouse_dehover(target):
 	hovered_targets.erase(target)
 
-func select_hovered_target():
-	pass
+func select_target(target):
+	if selected_target:
+		deselect_target()
+	target.add_to_group("target")
+	selected_target = target
 
 func deselect_target():
-	pass
+	selected_target.remove_from_group("target")
+	selected_target = null
 
 func display_overlay():
 	$GUI/Overlay.visible = true

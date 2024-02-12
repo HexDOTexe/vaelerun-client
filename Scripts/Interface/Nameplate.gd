@@ -40,4 +40,4 @@ func set_nameplate():
 				content += "[color=red][b]"+get_parent().entity_name+"[/b][/color]" + "\n"
 				nameplate_label.text = content
 	else:
-		nameplate.text = ""
+		nameplate_label.text = ""
