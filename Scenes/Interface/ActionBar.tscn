@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdspvihpk3bu8"]
+[gd_scene load_steps=15 format=3 uid="uid://cdspvihpk3bu8"]
 
 [ext_resource type="Texture2D" uid="uid://c67lnwj1jecix" path="res://Assets/Textures/Interface/container_minimal_gold_darkest.png" id="1_2j1p5"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_7npi2"]
 [ext_resource type="Script" path="res://Scenes/Interface/ActionBar.gd" id="1_ekyts"]
 [ext_resource type="Texture2D" uid="uid://hbv855kdv7td" path="res://Assets/Textures/Interface/grad_ps2.png" id="1_pqxq4"]
 [ext_resource type="FontFile" uid="uid://d17xdtqxluukt" path="res://Assets/Fonts/Atkinson-Hyperlegible-Regular-102.otf" id="3_4ola7"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="6_7vdix"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uplen"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0vyr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpysg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bb66x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aptg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83id2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vchnl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_437c7"]
 
 [node name="ActionBar" type="Control"]
 layout_mode = 3
@@ -646,24 +663,40 @@ grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SidePanel"]
+[node name="VDIV" type="VBoxContainer" parent="SidePanel"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ExpandButton" type="Button" parent="SidePanel/VBoxContainer"]
+[node name="ExpandButton" type="Button" parent="SidePanel/VDIV"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_uplen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n0vyr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hpysg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bb66x")
 text = "+"
 
-[node name="CollapseButton" type="Button" parent="SidePanel/VBoxContainer"]
+[node name="CollapseButton" type="Button" parent="SidePanel/VDIV"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_aptg5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83id2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vchnl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_437c7")
 text = "-"
 
-[connection signal="pressed" from="SidePanel/VBoxContainer/ExpandButton" to="." method="_on_expand_button_pressed"]
-[connection signal="pressed" from="SidePanel/VBoxContainer/CollapseButton" to="." method="_on_collapse_button_pressed"]
+[node name="BorderFrame" type="NinePatchRect" parent="SidePanel"]
+layout_mode = 2
+texture = ExtResource("6_7vdix")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[connection signal="pressed" from="SidePanel/VDIV/ExpandButton" to="." method="_on_expand_button_pressed"]
+[connection signal="pressed" from="SidePanel/VDIV/CollapseButton" to="." method="_on_collapse_button_pressed"]

@@ -30,5 +30,5 @@ func _on_expand_button_pressed():
 		active_rows += 1
 
 func _on_collapse_button_pressed():
-	if active_rows > 0:
+	if active_rows >= 2:
 		active_rows -= 1

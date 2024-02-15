@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://btavrdgbok5hi"]
+[gd_scene load_steps=7 format=3 uid="uid://btavrdgbok5hi"]
 
 [ext_resource type="Script" path="res://Scripts/Interface/PlayerFrame.gd" id="1_by4u6"]
 [ext_resource type="Texture2D" uid="uid://cmqllr5mnpp15" path="res://Assets/Textures/Interface/bg_dark.png" id="2_7oo0w"]
 [ext_resource type="Texture2D" uid="uid://c6ddts8rwsg1j" path="res://Assets/Textures/Interface/frame_player.png" id="2_8if6y"]
 [ext_resource type="Texture2D" uid="uid://dfh566571wasm" path="res://Assets/Textures/Interface/grad_bar.png" id="3_ysleh"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="7_0bght"]
+
+[sub_resource type="SystemFont" id="SystemFont_6yhd4"]
 
 [node name="PlayerFrame" type="Control"]
 layout_mode = 3
@@ -64,6 +66,7 @@ offset_top = -11.5
 offset_right = 58.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_6yhd4")
 text = "9999"
 
 [node name="PercentLabel" type="Label" parent="Health/Bar"]
@@ -79,6 +82,7 @@ offset_right = -10.0
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_6yhd4")
 text = "100%"
 horizontal_alignment = 2
 
@@ -109,10 +113,12 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 10.0
-offset_top = -11.5
+offset_top = -14.0
 offset_right = 58.0
-offset_bottom = 11.5
+offset_bottom = 14.0
 grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_6yhd4")
+theme_override_font_sizes/font_size = 20
 text = "9999"
 
 [node name="PercentLabel" type="Label" parent="Power/Bar"]
@@ -122,12 +128,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -10.5
+offset_left = -62.0
+offset_top = -14.0
 offset_right = -10.0
-offset_bottom = 12.5
+offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_6yhd4")
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
