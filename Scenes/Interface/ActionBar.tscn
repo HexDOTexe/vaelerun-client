@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c67lnwj1jecix" path="res://Assets/Textures/Interface/container_minimal_gold_darkest.png" id="1_2j1p5"]
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_7npi2"]
-[ext_resource type="Script" path="res://Scenes/Interface/ActionBar.gd" id="1_ekyts"]
+[ext_resource type="Script" path="res://Scripts/Interface/ActionBar.gd" id="1_ekyts"]
 [ext_resource type="Texture2D" uid="uid://hbv855kdv7td" path="res://Assets/Textures/Interface/grad_ps2.png" id="1_pqxq4"]
 [ext_resource type="FontFile" uid="uid://d17xdtqxluukt" path="res://Assets/Fonts/Atkinson-Hyperlegible-Regular-102.otf" id="3_4ola7"]
 [ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="6_7vdix"]

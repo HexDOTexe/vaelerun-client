@@ -40,6 +40,10 @@ func _input(event):
 			else:
 				var last_menu = active_menus.size() - 1
 				close_specific_menu(active_menus[last_menu])
+		# Left-clicking on nothing clears your current target
+		# ENTER / Chat keybind for opening/closing the chat window.
+		if event.is_action_pressed("ui_accept"):
+			pass
 
 func start_canvas():
 	var new_canvas = CanvasLayer.new()

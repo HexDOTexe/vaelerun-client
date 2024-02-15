@@ -24,13 +24,15 @@ offset_top = -2.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="PlayerFrame" parent="Margin" instance=ExtResource("1_imi5h")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 
 [node name="TargetFrame" parent="Margin" instance=ExtResource("2_ij2uk")]
@@ -40,8 +42,6 @@ size_flags_vertical = 0
 
 [node name="ChatLog" parent="Margin" instance=ExtResource("3_wjh3u")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
 
 [node name="ActionBar1" parent="Margin" instance=ExtResource("4_f0ndw")]
 layout_mode = 2

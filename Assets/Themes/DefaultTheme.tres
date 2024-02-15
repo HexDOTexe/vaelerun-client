@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=31 format=3 uid="uid://jegwin2s8h28"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://jegwin2s8h28"]
 
 [ext_resource type="FontFile" uid="uid://0xrwt7nlb1mb" path="res://Assets/Fonts/matrix-ii-bold.otf" id="1_6sc5c"]
 [ext_resource type="FontFile" uid="uid://h4p4531qw1yr" path="res://Assets/Fonts/matrix-ii-regular.otf" id="1_q8e6v"]
@@ -98,6 +98,12 @@ texture = ExtResource("3_028jf")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro1i1"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yl4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd0i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acljq"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2x85"]
 content_margin_left = 12.0
 content_margin_top = 10.0
@@ -164,6 +170,9 @@ TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 TextEdit/colors/font_outline_color = Color(1, 1, 1, 1)
 TextEdit/font_sizes/font_size = 18
 TextEdit/fonts/font = ExtResource("1_q8e6v")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_6yl4o")
+TextEdit/styles/normal = SubResource("StyleBoxEmpty_sd0i0")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_acljq")
 TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
 TooltipLabel/font_sizes/font_size = 20
 TooltipLabel/fonts/font = ExtResource("1_q8e6v")
