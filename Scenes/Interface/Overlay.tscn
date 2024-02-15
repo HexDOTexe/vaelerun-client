@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://beqgtrgrvb1un"]
+[gd_scene load_steps=5 format=3 uid="uid://beqgtrgrvb1un"]
 
 [ext_resource type="PackedScene" uid="uid://btavrdgbok5hi" path="res://Scenes/Interface/PlayerFrame.tscn" id="1_imi5h"]
 [ext_resource type="PackedScene" uid="uid://dnxuip338frr2" path="res://Scenes/Interface/TargetFrame.tscn" id="2_ij2uk"]
+[ext_resource type="PackedScene" uid="uid://cgkeg25ijxb8n" path="res://Scenes/Interface/ChatLog.tscn" id="3_wjh3u"]
+[ext_resource type="PackedScene" uid="uid://cdspvihpk3bu8" path="res://Scenes/Interface/ActionBar.tscn" id="4_f0ndw"]
 
 [node name="Overlay" type="Control"]
 z_index = 1
@@ -13,9 +15,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PlayerFrame" parent="." instance=ExtResource("1_imi5h")]
+[node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="PlayerFrame" parent="Margin" instance=ExtResource("1_imi5h")]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 
-[node name="TargetFrame" parent="." instance=ExtResource("2_ij2uk")]
-layout_mode = 1
+[node name="TargetFrame" parent="Margin" instance=ExtResource("2_ij2uk")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ChatLog" parent="Margin" instance=ExtResource("3_wjh3u")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="ActionBar1" parent="Margin" instance=ExtResource("4_f0ndw")]
+layout_mode = 2

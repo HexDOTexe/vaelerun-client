@@ -14,6 +14,7 @@ offset_top = 25.0
 offset_right = 25.0
 offset_bottom = 25.0
 mouse_filter = 2
+theme = ExtResource("7_0bght")
 script = ExtResource("1_by4u6")
 
 [node name="FrameBorder" type="TextureRect" parent="."]
@@ -143,7 +144,7 @@ offset_top = 7.0
 offset_right = 252.0
 offset_bottom = 30.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Placeholder Name"
+text = "Name"
 
 [connection signal="gui_input" from="FrameBorder" to="." method="_on_frame_border_gui_input"]
 [connection signal="mouse_entered" from="FrameBorder" to="." method="_on_frame_border_mouse_entered"]

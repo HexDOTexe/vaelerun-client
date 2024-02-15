@@ -1,7 +1,9 @@
 extends Control
+# PLAYER FRAME
 
 var player
 var player_name = Server.temp_name
+var player_sprite
 var health_maximum
 var health_current
 var health_percent

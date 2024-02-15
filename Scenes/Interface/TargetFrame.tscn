@@ -159,7 +159,8 @@ offset_top = 5.0
 offset_right = -110.0
 offset_bottom = 28.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Placeholder Name"
+text = "Name"
+horizontal_alignment = 2
 
 [connection signal="gui_input" from="FrameBorder" to="." method="_on_frame_border_gui_input"]
 [connection signal="mouse_entered" from="FrameBorder" to="." method="_on_frame_border_mouse_entered"]

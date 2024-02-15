@@ -1,5 +1,6 @@
 extends Entity
 class_name EntityNode
+# ENTITY NODE
 
 func _ready():
 	# set default temp values until entity values can be loaded dynamically

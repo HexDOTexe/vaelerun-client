@@ -28,7 +28,7 @@ func load_map():
 func spawn_new_player(client_id, position):
 	if multiplayer.get_unique_id() == client_id:
 		var new_player = player_node.instantiate()
-		new_player.position = Vector2(500,400)
+		new_player.position = Vector2(-250,-100)
 		new_player.name = str(client_id)
 		new_player.entity_name = Server.temp_name
 		$Map.add_child(new_player)

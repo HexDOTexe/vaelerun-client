@@ -1,0 +1,669 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdspvihpk3bu8"]
+
+[ext_resource type="Texture2D" uid="uid://c67lnwj1jecix" path="res://Assets/Textures/Interface/container_minimal_gold_darkest.png" id="1_2j1p5"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_7npi2"]
+[ext_resource type="Script" path="res://Scenes/Interface/ActionBar.gd" id="1_ekyts"]
+[ext_resource type="Texture2D" uid="uid://hbv855kdv7td" path="res://Assets/Textures/Interface/grad_ps2.png" id="1_pqxq4"]
+[ext_resource type="FontFile" uid="uid://d17xdtqxluukt" path="res://Assets/Fonts/Atkinson-Hyperlegible-Regular-102.otf" id="3_4ola7"]
+
+[node name="ActionBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ekyts")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -357.0
+offset_top = -82.0
+offset_right = 357.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="VDIV" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ActionBar3" type="MarginContainer" parent="Panel/VDIV"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Bar3" type="HBoxContainer" parent="Panel/VDIV/ActionBar3"]
+layout_mode = 2
+theme = ExtResource("1_7npi2")
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="ActionButton11" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[1] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton11"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+1"
+
+[node name="ActionButton12" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[2] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton12"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+2"
+
+[node name="ActionButton13" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[3] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton13"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+3"
+
+[node name="ActionButton14" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[4] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton14"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+4"
+
+[node name="ActionButton15" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[5] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton15"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+5"
+
+[node name="ActionButton16" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[6] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton16"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+6"
+
+[node name="ActionButton17" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[7] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton17"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+7"
+
+[node name="ActionButton18" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[8] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton18"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+8"
+
+[node name="ActionButton19" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[9] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton19"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+9"
+
+[node name="ActionButton20" type="TextureRect" parent="Panel/VDIV/ActionBar3/Bar3"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[b][10] - Unassigned[/b]
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar3/Bar3/ActionButton20"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "SHFT+0"
+
+[node name="ActionBar2" type="MarginContainer" parent="Panel/VDIV"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Bar2" type="HBoxContainer" parent="Panel/VDIV/ActionBar2"]
+layout_mode = 2
+theme = ExtResource("1_7npi2")
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="ActionButton11" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[1] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton11"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+1"
+uppercase = true
+
+[node name="ActionButton12" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[2] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton12"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+2"
+
+[node name="ActionButton13" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[3] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton13"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+3"
+
+[node name="ActionButton14" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[4] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton14"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+4"
+
+[node name="ActionButton15" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[5] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton15"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+5"
+
+[node name="ActionButton16" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[6] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton16"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+6"
+
+[node name="ActionButton17" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[7] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton17"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+7"
+
+[node name="ActionButton18" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[8] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton18"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+8"
+
+[node name="ActionButton19" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[9] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton19"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+9"
+
+[node name="ActionButton20" type="TextureRect" parent="Panel/VDIV/ActionBar2/Bar2"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[b][10] - Unassigned[/b]
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar2/Bar2/ActionButton20"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "CTRL+0"
+
+[node name="ActionBar1" type="MarginContainer" parent="Panel/VDIV"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Bar1" type="HBoxContainer" parent="Panel/VDIV/ActionBar1"]
+layout_mode = 2
+theme = ExtResource("1_7npi2")
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="ActionButton1" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[1] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton1"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="ActionButton2" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[2] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "2"
+
+[node name="ActionButton3" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[3] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "3"
+
+[node name="ActionButton4" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[4] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "4"
+
+[node name="ActionButton5" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[5] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "5"
+
+[node name="ActionButton6" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[6] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "6"
+
+[node name="ActionButton7" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[7] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "7"
+
+[node name="ActionButton8" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[8] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "8"
+
+[node name="ActionButton9" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[9] - Unassigned
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton9"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "9"
+
+[node name="ActionButton10" type="TextureRect" parent="Panel/VDIV/ActionBar1/Bar1"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "[b][10] - Unassigned[/b]
+Nothing is assigned to this key."
+mouse_filter = 0
+texture = ExtResource("1_pqxq4")
+expand_mode = 2
+
+[node name="Keybind" type="Label" parent="Panel/VDIV/ActionBar1/Bar1/ActionButton10"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_4ola7")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="BorderFrame" type="NinePatchRect" parent="Panel"]
+layout_mode = 2
+texture = ExtResource("1_2j1p5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SidePanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = -75.0
+offset_right = 385.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SidePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ExpandButton" type="Button" parent="SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
+[node name="CollapseButton" type="Button" parent="SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "-"
+
+[connection signal="pressed" from="SidePanel/VBoxContainer/ExpandButton" to="." method="_on_expand_button_pressed"]
+[connection signal="pressed" from="SidePanel/VBoxContainer/CollapseButton" to="." method="_on_collapse_button_pressed"]
