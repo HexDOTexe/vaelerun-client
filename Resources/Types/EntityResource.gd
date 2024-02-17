@@ -1,5 +1,4 @@
 extends Resource
-class_name EntityResource
 
 enum EntityStates {IDLE, DEAD}
 enum EntityType {PLAYER_SELF, PLAYER_OTHER, NPC, PROP}
@@ -8,6 +7,7 @@ enum EntityType {PLAYER_SELF, PLAYER_OTHER, NPC, PROP}
 @export var entity_index_id : int
 @export var entity_type : EntityType
 @export var entity_state : EntityStates
+@export var entity_sprite : CompressedTexture2D
 
 @export var entity_name : String
 @export var entity_class : String
@@ -26,3 +26,6 @@ enum EntityType {PLAYER_SELF, PLAYER_OTHER, NPC, PROP}
 @export var move_speed_walking : int
 @export var move_speed_current : int
 @export var move_speed_maximum : int
+
+func _init(p_health_maximum = 100):
+	health_maximum = p_health_maximum

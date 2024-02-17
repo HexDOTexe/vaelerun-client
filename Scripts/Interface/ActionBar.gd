@@ -7,7 +7,7 @@ extends Control
 var bars_locked : bool = false
 var active_rows : int = 1
 
-func _process(delta):
+func _process(_delta):
 	match active_rows:
 		1:
 			if Bar2.visible == true:

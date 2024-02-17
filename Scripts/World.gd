@@ -46,6 +46,7 @@ func despawn_player(client_id):
 #region Entity Events
 func spawn_new_entity(entity_id, entity):
 	var new_entity = entity_node.instantiate()
+	new_entity.index_id = entity["entity_index_id"]
 	new_entity.entity_index_id = entity["entity_index_id"]
 	#new_entity.load_resource()
 	new_entity.position = entity["location"]

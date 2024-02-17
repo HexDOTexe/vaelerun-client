@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="EntityResource" load_steps=2 format=3 uid="uid://bikinwa2o5p2x"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bikinwa2o5p2x"]
 
+[ext_resource type="Texture2D" uid="uid://dcawaspbgp2bp" path="res://Assets/Sprites/Entity.png" id="1_3l5ql"]
 [ext_resource type="Script" path="res://Resources/Types/EntityResource.gd" id="1_k1lo0"]
 
 [resource]
@@ -7,6 +8,7 @@ script = ExtResource("1_k1lo0")
 entity_index_id = 1
 entity_type = 2
 entity_state = 0
+entity_sprite = ExtResource("1_3l5ql")
 entity_name = "Warmech"
 entity_class = "Machine"
 entity_level = 10
