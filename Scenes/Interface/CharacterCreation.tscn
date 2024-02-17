@@ -1,0 +1,362 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7yohup12ohmv"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_m0hxs"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="1_ugxlq"]
+
+[node name="CharacterCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m0hxs")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HDIV" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HDIV"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VDIV" type="VBoxContainer" parent="Margin/HDIV/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin/HDIV/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Human"
+
+[node name="CheckBox" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Elf"
+
+[node name="CheckBox2" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Elf"
+
+[node name="CheckBox3" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Elf"
+
+[node name="CheckBox4" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Elf"
+
+[node name="CheckBox5" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Elf"
+
+[node name="CheckBox6" type="CheckBox" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Margin/HDIV/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="Margin/HDIV/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Label" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label2" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Body Type"
+
+[node name="Label3" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label4" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label5" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Style"
+
+[node name="Label6" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label7" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label8" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Color"
+
+[node name="Label9" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label10" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label11" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Color"
+
+[node name="Label12" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label13" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label14" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Color"
+
+[node name="Label15" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label16" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label17" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Color"
+
+[node name="Label18" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="Label19" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<--"
+
+[node name="Label20" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hair Color"
+
+[node name="Label21" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-->"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Margin/HDIV"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="VDIV2" type="VBoxContainer" parent="Margin/HDIV/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin/HDIV/MarginContainer2/VDIV2"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Border" type="NinePatchRect" parent="Margin/HDIV/MarginContainer2/VDIV2/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_ugxlq")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="PanelContainer2" type="PanelContainer" parent="Margin/HDIV/MarginContainer2/VDIV2"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="JoinButton" type="Button" parent="Margin/HDIV/MarginContainer2/VDIV2"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_m0hxs")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Create Character"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Margin/HDIV"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VDIV3" type="VBoxContainer" parent="Margin/HDIV/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin/HDIV/MarginContainer3/VDIV3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Warrior"
+
+[node name="CheckBox" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paladin"
+
+[node name="CheckBox2" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Thief"
+
+[node name="CheckBox3" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ranger"
+
+[node name="CheckBox4" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mage"
+
+[node name="CheckBox5" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cleric"
+
+[node name="CheckBox6" type="CheckBox" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Margin/HDIV/MarginContainer3/VDIV3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="Margin/HDIV/MarginContainer3/VDIV3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
