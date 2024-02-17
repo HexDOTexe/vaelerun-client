@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://btavrdgbok5hi" path="res://Scenes/Interface/PlayerFrame.tscn" id="1_imi5h"]
 [ext_resource type="PackedScene" uid="uid://dnxuip338frr2" path="res://Scenes/Interface/TargetFrame.tscn" id="2_ij2uk"]
-[ext_resource type="PackedScene" uid="uid://cgkeg25ijxb8n" path="res://Scenes/Interface/ChatLog.tscn" id="3_wjh3u"]
+[ext_resource type="PackedScene" uid="uid://cgkeg25ijxb8n" path="res://Scenes/Interface/ChatWindow.tscn" id="3_lhyuv"]
 [ext_resource type="PackedScene" uid="uid://cdspvihpk3bu8" path="res://Scenes/Interface/ActionBar.tscn" id="4_f0ndw"]
 
 [node name="Overlay" type="Control"]
@@ -40,7 +40,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="ChatLog" parent="Margin" instance=ExtResource("3_wjh3u")]
+[node name="ChatWindow" parent="Margin" instance=ExtResource("3_lhyuv")]
 layout_mode = 2
 
 [node name="ActionBar1" parent="Margin" instance=ExtResource("4_f0ndw")]

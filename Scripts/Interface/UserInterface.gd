@@ -7,6 +7,8 @@ extends Node
 @onready var SystemMenu = preload("res://Scenes/Interface/SystemMenu.tscn")
 @onready var DynamicTooltip = preload("res://Scenes/Interface/DynamicTooltip.tscn")
 
+@onready var chat_window = "GUI/Overlay/Margin/ChatWindow"
+
 var active_menus = []
 var registered_nameplates = []
 var active_nameplates = []
@@ -15,6 +17,7 @@ var selected_target
 var focused_target
 var overlay_active : bool = false
 var tooltip_active : bool = false
+var chat_input_active : bool = false
 
 func _ready():
 	start_canvas()
@@ -40,9 +43,10 @@ func _input(event):
 			else:
 				var last_menu = active_menus.size() - 1
 				close_specific_menu(active_menus[last_menu])
-		# Left-clicking on nothing clears your current target
+		# TBD - Left-clicking on nothing clears your current target
 		# ENTER / Chat keybind for opening/closing the chat window.
 		if event.is_action_pressed("ui_accept"):
+			get_node(chat_window).send_chat_message()
 			pass
 
 func start_canvas():

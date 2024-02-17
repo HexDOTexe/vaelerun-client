@@ -140,4 +140,18 @@ func receive_world_state(world_state):
 	# Entities: "maximum_health"	/ "entity_state" 	/ "entity_respawn_timer"
 	get_node("../SceneManager/World").update_world_state(world_state)
 	get_node("../UserInterface/GUI/ClientDisplay").get_world_time(world_state["T"])
+
+func send_chat_event(message):
+	receive_chat_event.rpc_id(1, message)
+
+@rpc ("any_peer", "reliable")
+func receive_chat_event(_message):
+	pass
+
+func send_chat_message(_message):
+	pass
+
+@rpc("authority", "reliable")
+func receive_chat_message(message):
+	get_node("/root/UserInterface/GUI/Overlay/Margin/ChatWindow").receive_chat_message(message)
 #endregion
