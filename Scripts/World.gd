@@ -46,13 +46,13 @@ func despawn_player(client_id):
 #region Entity Events
 func spawn_new_entity(entity_id, entity):
 	var new_entity = entity_node.instantiate()
-	new_entity.index_id = entity["entity_index_id"]
-	new_entity.entity_index_id = entity["entity_index_id"]
+	new_entity.index_id = entity["I"]
+	new_entity.entity_index_id = entity["I"]
 	#new_entity.load_resource()
-	new_entity.position = entity["location"]
-	new_entity.health_current = entity["health_current"]
-	new_entity.health_maximum = entity["health_maximum"]
-	new_entity.entity_state = entity["state"]
+	new_entity.position = entity["P"]
+	new_entity.health_current = entity["HC"]
+	new_entity.health_maximum = entity["HM"]
+	new_entity.entity_state = entity["S"]
 	new_entity.name = str(entity_id)
 	$Map.add_child(new_entity)
 
@@ -61,9 +61,9 @@ func despawn_entity(entity_id, entity):
 #endregion
 
 func update_world_state(world_state):
-	if world_state["T"] > local_world_state:
+	if world_state["0"] > local_world_state:
 		#print(world_state)
-		local_world_state = world_state["T"]
+		local_world_state = world_state["0"]
 		world_state_buffer.append(world_state)
 
 func process_world_state_buffer(_delta):
@@ -73,51 +73,53 @@ func process_world_state_buffer(_delta):
 	# otherwise, we will instead make some estimations based on previous states
 	var render_time = Server.adjusted_clock - interpolation_rate
 	if world_state_buffer.size() > 1:
-		while world_state_buffer.size() > 2 and render_time > world_state_buffer[2]["T"]:
+		while world_state_buffer.size() > 2 and render_time > world_state_buffer[2]["0"]:
 			world_state_buffer.remove_at(0)
 		if world_state_buffer.size() > 2:
-			var interpolation_factor = float(render_time - world_state_buffer[1]["T"]) / float(world_state_buffer[2]["T"] - world_state_buffer[1]["T"])
-			for player in world_state_buffer[2].keys():
-				if str(player) == "T":
+			var interpolation_factor = float(render_time - world_state_buffer[1]["0"]) / float(world_state_buffer[2]["0"] - world_state_buffer[1]["0"])
+			for player in world_state_buffer[2]["2"].keys():
+				if str(player) == "0":
 					continue
-				if str(player) == "Entities":
+				if str(player) == "3":
 					continue
 				if player == Server.local_client_id:
 					continue
-				if !world_state_buffer[1].has(player):
+				if !world_state_buffer[1]["2"].has(player):
 					continue
 				if $Map.has_node(str(player)):
-					var entity_name = world_state_buffer[2][player]["Name"]
-					var new_position = lerp(world_state_buffer[1][player]["P"], world_state_buffer[2][player]["P"], interpolation_factor)
-					get_node("./Map/" + str(player)).update_entity(new_position)
+					var entity_name = world_state_buffer[2]["2"][player]["N"]
+					var new_position = lerp(world_state_buffer[1]["2"][player]["P"], world_state_buffer[2]["2"][player]["P"], interpolation_factor)
+					var new_state = world_state_buffer[2]["2"][player]["S"]
 					get_node("./Map/" + str(player)).update_entity_name(entity_name)
+					get_node("./Map/" + str(player)).update_entity_position(new_position)
+					get_node("./Map/" + str(player)).update_entity_state(new_state)
 				else:
 					#print("Spawning new player")
-					spawn_new_player(player, world_state_buffer[2][player]["P"])
-			for entity in world_state_buffer[2]["Entities"].keys():
-				if !world_state_buffer[1]["Entities"].has(entity):
+					spawn_new_player(player, world_state_buffer[2]["2"][player]["P"])
+			for entity in world_state_buffer[2]["3"].keys():
+				if !world_state_buffer[1]["3"].has(entity):
 					continue
 				if $Map.has_node((str(entity))):
-					var new_position = lerp(world_state_buffer[1]["Entities"][entity]["location"], world_state_buffer[2]["Entities"][entity]["location"], interpolation_factor)
-					get_node("./Map/" + str(entity)).update_entity(new_position)
+					var new_position = lerp(world_state_buffer[1]["3"][entity]["P"], world_state_buffer[2]["3"][entity]["P"], interpolation_factor)
+					get_node("./Map/" + str(entity)).update_entity_position(new_position)
 				else:
 					#print("Spawning new entity")
-					spawn_new_entity(entity, world_state_buffer[2]["Entities"][entity])
-		elif render_time > world_state_buffer[1]["T"]:
-			var estimation_factor = float(render_time - world_state_buffer[0]["T"]) / float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.00
-			for player in world_state_buffer[1].keys():
-				if str(player) == "T":
+					spawn_new_entity(entity, world_state_buffer[2]["3"][entity])
+		elif render_time > world_state_buffer[1]["0"]:
+			var estimation_factor = float(render_time - world_state_buffer[0]["0"]) / float(world_state_buffer[1]["0"] - world_state_buffer[0]["0"]) - 1.00
+			for player in world_state_buffer[1]["2"].keys():
+				if str(player) == "0":
 					continue
-				if str(player) == "Entities":
+				if str(player) == "3":
 					continue
 				if player == Server.local_client_id:
 					continue
-				if !world_state_buffer[0].has(player):
+				if !world_state_buffer[0]["2"].has(player):
 					continue
 				if $Map.has_node(str(player)):
-					var position_delta = (world_state_buffer[1][player]["P"] - world_state_buffer[0][player]["P"])
-					var new_position = world_state_buffer[1][player]["P"] + (position_delta * estimation_factor)
-					get_node("./Map/" + str(player)).update_entity(new_position)
+					var position_delta = (world_state_buffer[1]["2"][player]["P"] - world_state_buffer[0]["2"][player]["P"])
+					var new_position = world_state_buffer[1]["2"][player]["P"] + (position_delta * estimation_factor)
+					get_node("./Map/" + str(player)).update_entity_position(new_position)
 
 # Don't use this! This is the NON-BUFFERED version of the world state update process. 
 # Player updates are processed in real-time as packets are receved (looks/feels bad)

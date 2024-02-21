@@ -52,6 +52,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 25
 columns = 2
 
 [node name="Label" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer/MarginContainer/GridContainer"]
@@ -123,6 +124,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/h_separation = 25
 columns = 3
 
 [node name="Label" type="Label" parent="Margin/HDIV/MarginContainer/VDIV/PanelContainer3/MarginContainer/GridContainer"]
@@ -301,6 +303,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 25
 columns = 2
 
 [node name="Label" type="Label" parent="Margin/HDIV/MarginContainer3/VDIV3/PanelContainer/MarginContainer/GridContainer"]

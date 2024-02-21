@@ -43,8 +43,11 @@ func _on_hitbox_mouse_entered():
 func _on_hitbox_mouse_exited():
 	UserInterface.mouse_dehover(self.name)
 
-func update_entity(new_position):
-	self.position = new_position
-
 func update_entity_name(new_name):
 	self.entity_name = new_name
+
+func update_entity_position(new_position):
+	self.position = new_position
+
+func update_entity_state(new_state):
+	self.entity_state = new_state
