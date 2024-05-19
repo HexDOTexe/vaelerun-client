@@ -78,10 +78,6 @@ func process_world_state_buffer(_delta):
 		if world_state_buffer.size() > 2:
 			var interpolation_factor = float(render_time - world_state_buffer[1]["0"]) / float(world_state_buffer[2]["0"] - world_state_buffer[1]["0"])
 			for player in world_state_buffer[2]["2"].keys():
-				if str(player) == "0":
-					continue
-				if str(player) == "3":
-					continue
 				if player == Server.local_client_id:
 					continue
 				if !world_state_buffer[1]["2"].has(player):

@@ -12,9 +12,14 @@ func _on_text_input_line_text_changed(new_text):
 	message = new_text
 
 func _on_text_input_line_focus_entered():
-	pass # Replace with function body.
+	UserInterface.chat_input_active = true
+	pass
 
 func _on_text_input_line_focus_exited():
+	UserInterface.chat_input_active = false
+	pass
+
+func _on_text_input_line_text_submitted(new_text):
 	pass # Replace with function body.
 
 func clear_text_input():
@@ -27,4 +32,7 @@ func send_chat_message():
 
 func receive_chat_message(new_message):
 	chat_log.text += new_message
+
+
+
 

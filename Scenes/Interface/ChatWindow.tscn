@@ -212,3 +212,4 @@ patch_margin_bottom = 6
 [connection signal="focus_entered" from="VDIV/HDIV/TextInputFrame/Margin/TextInputLine" to="." method="_on_text_input_line_focus_entered"]
 [connection signal="focus_exited" from="VDIV/HDIV/TextInputFrame/Margin/TextInputLine" to="." method="_on_text_input_line_focus_exited"]
 [connection signal="text_changed" from="VDIV/HDIV/TextInputFrame/Margin/TextInputLine" to="." method="_on_text_input_line_text_changed"]
+[connection signal="text_submitted" from="VDIV/HDIV/TextInputFrame/Margin/TextInputLine" to="." method="_on_text_input_line_text_submitted"]

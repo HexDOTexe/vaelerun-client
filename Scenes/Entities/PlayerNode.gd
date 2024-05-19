@@ -51,9 +51,10 @@ func update_player():
 	pass
 
 func player_movement(_delta):
-	movement_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	movement_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	movement_vector = movement_vector.normalized()
+	if UserInterface.chat_input_active == false:
+		movement_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		movement_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		movement_vector = movement_vector.normalized()
 	
 	if movement_vector == Vector2(0, 0):
 		move_speed_current = 0
