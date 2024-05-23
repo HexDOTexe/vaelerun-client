@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdajei06d472x"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_fh6x5"]
+[ext_resource type="Script" path="res://Scripts/Interface/AccountRegistration.gd" id="2_45usv"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_bfsrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m0xl"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="RegistrationPanel" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.398
+offset_top = -186.71
+offset_right = 238.398
+offset_bottom = 186.71
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fh6x5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8m0xl")
+script = ExtResource("2_45usv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VDIV" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="RegistrationLabel" type="RichTextLabel" parent="MarginContainer/VDIV"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]Account Creation"
+fit_content = true
+
+[node name="HDIV" type="HBoxContainer" parent="MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VDIV/HDIV"]
+layout_mode = 2
+text = "Username"
+
+[node name="NewNameBox" type="LineEdit" parent="MarginContainer/VDIV/HDIV"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+max_length = 14
+context_menu_enabled = false
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HDIV2" type="HBoxContainer" parent="MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VDIV/HDIV2"]
+layout_mode = 2
+text = "Password"
+
+[node name="NewPasswordBox" type="LineEdit" parent="MarginContainer/VDIV/HDIV2"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+max_length = 14
+context_menu_enabled = false
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+secret = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VDIV"]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="MarginContainer/VDIV"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/VDIV"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+text = "Submit"
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VDIV"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Close"
+
+[node name="BorderMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="BorderMargin"]
+layout_mode = 2
+texture = ExtResource("3_bfsrd")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[connection signal="pressed" from="MarginContainer/VDIV/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VDIV/CloseButton" to="." method="_on_close_button_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_m0hxs"]
 [ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="1_ugxlq"]
-[ext_resource type="Script" path="res://Scenes/Interface/CharacterCreation.gd" id="2_1jurx"]
+[ext_resource type="Script" path="res://Scripts/Interface/CharacterCreation.gd" id="2_1jurx"]
 
 [node name="CharacterCreation" type="Control"]
 layout_mode = 3

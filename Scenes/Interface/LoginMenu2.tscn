@@ -1,0 +1,152 @@
+[gd_scene load_steps=6 format=3 uid="uid://be8acptujfd0b"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_f3hyy"]
+[ext_resource type="Script" path="res://Scripts/Interface/LoginMenu2.gd" id="2_qj36o"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_eqojx"]
+[ext_resource type="PackedScene" uid="uid://bdajei06d472x" path="res://Scenes/Interface/RegistrationPanel.tscn" id="3_hmsdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m0xl"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="LoginMenu2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("1_f3hyy")
+script = ExtResource("2_qj36o")
+CreateUserWindow = ExtResource("3_hmsdn")
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -212.0
+offset_right = 311.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f3hyy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8m0xl")
+
+[node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VDIV" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="HDIV" type="HBoxContainer" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
+layout_mode = 2
+text = "Username"
+
+[node name="NameBox" type="LineEdit" parent="LoginPanel/MarginContainer/VDIV/HDIV"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+max_length = 14
+context_menu_enabled = false
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HDIV2" type="HBoxContainer" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="LoginPanel/MarginContainer/VDIV/HDIV2"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordBox" type="LineEdit" parent="LoginPanel/MarginContainer/VDIV/HDIV2"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+max_length = 14
+context_menu_enabled = false
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="ConnectButton" type="Button" parent="LoginPanel/MarginContainer/VDIV"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Connect"
+
+[node name="HSeparator" type="HSeparator" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HDIV3" type="HBoxContainer" parent="LoginPanel/MarginContainer/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="NewUserButton" type="Button" parent="LoginPanel/MarginContainer/VDIV/HDIV3"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "New User"
+
+[node name="ExitButton" type="Button" parent="LoginPanel/MarginContainer/VDIV/HDIV3"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Exit"
+
+[node name="BorderMargin" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="LoginPanel/BorderMargin"]
+layout_mode = 2
+texture = ExtResource("3_eqojx")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV/NameBox" to="." method="_on_name_box_text_changed"]
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV2/PasswordBox" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="LoginPanel/MarginContainer/VDIV/HDIV2/PasswordBox" to="." method="_on_name_box_text_changed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/HDIV3/NewUserButton" to="." method="_on_new_user_button_pressed"]
+[connection signal="pressed" from="LoginPanel/MarginContainer/VDIV/HDIV3/ExitButton" to="." method="_on_exit_button_pressed"]
