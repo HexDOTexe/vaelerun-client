@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv0k0e2nd0fi7"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_42eh5"]
+[ext_resource type="Texture2D" uid="uid://v1j17vpcb1ro" path="res://Assets/Textures/Interface/container_minimal_gold_default.png" id="3_21eob"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="3_cd1if"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08mg6"]
+texture = ExtResource("3_21eob")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kq8yh"]
+texture = ExtResource("3_cd1if")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggsq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrvuk"]
+bg_color = Color(0, 0.568627, 0.207843, 1)
+
+[node name="EquipmentMenuDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_42eh5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(432, 96)
+layout_mode = 2
+offset_left = 31.0
+offset_top = 29.0
+offset_right = 431.0
+offset_bottom = 97.0
+
+[node name="TooltipIcon" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+theme = ExtResource("1_42eh5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_08mg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TooltipIcon"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="TooltipText2" type="PanelContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_42eh5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_08mg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2/TooltipText2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/TooltipText2/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2/TooltipText2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("1_42eh5")
+theme_override_colors/default_color = Color(0.72549, 0.172549, 1, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Titanic Stone Helm of A Very Long Name +2"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2/TooltipText2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1_42eh5")
+theme_override_colors/default_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Head"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="TooltipText" type="PanelContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_42eh5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kq8yh")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer2/TooltipText"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_aggsq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mrvuk")
+value = 70.6
+allow_greater = true
+show_percentage = false

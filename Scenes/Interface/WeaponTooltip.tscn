@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnludygdkckhe"]
+[gd_scene load_steps=5 format=3 uid="uid://digby8chq5aut"]
 
-[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_e6lpa"]
-[ext_resource type="Script" path="res://Scripts/Interface/DynamicTooltip.gd" id="2_waknn"]
-[ext_resource type="Texture2D" uid="uid://v1j17vpcb1ro" path="res://Assets/Textures/Interface/container_minimal_gold_default.png" id="3_kbthv"]
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_8brj4"]
+[ext_resource type="Script" path="res://Scripts/Interface/DynamicTooltip.gd" id="2_dcs2l"]
+[ext_resource type="Texture2D" uid="uid://v1j17vpcb1ro" path="res://Assets/Textures/Interface/container_minimal_gold_default.png" id="3_ev7wx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08mg6"]
-texture = ExtResource("3_kbthv")
+texture = ExtResource("3_ev7wx")
 texture_margin_left = 6.0
 texture_margin_top = 6.0
 texture_margin_right = 6.0
@@ -20,8 +20,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_e6lpa")
-script = ExtResource("2_waknn")
+theme = ExtResource("1_8brj4")
+script = ExtResource("2_dcs2l")
 
 [node name="BGPanel" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(100, 50)
@@ -30,7 +30,7 @@ offset_left = 15.0
 offset_top = 15.0
 offset_right = 157.0
 offset_bottom = 65.0
-theme = ExtResource("1_e6lpa")
+theme = ExtResource("1_8brj4")
 theme_override_styles/panel = SubResource("StyleBoxTexture_08mg6")
 
 [node name="MarginContainer" type="MarginContainer" parent="BGPanel"]
@@ -42,7 +42,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BGPanel/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("1_e6lpa")
+theme = ExtResource("1_8brj4")
 bbcode_enabled = true
 text = "test"
 fit_content = true
