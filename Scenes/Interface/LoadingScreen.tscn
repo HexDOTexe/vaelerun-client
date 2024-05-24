@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://pxwem4l32egl"]
+
+[ext_resource type="Theme" uid="uid://jegwin2s8h28" path="res://Assets/Themes/DefaultTheme.tres" id="1_bmam7"]
+[ext_resource type="Texture2D" uid="uid://urqlxyptrrea" path="res://Assets/Textures/Interface/border_minimal_gold.png" id="2_ekgh6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g88de"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bmam7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_g88de")
+
+[node name="MarginContainer" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="LoginPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOADING"
+
+[node name="ProgressBar" type="ProgressBar" parent="LoginPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+value = 41.38
+show_percentage = false
+
+[node name="BorderMargin" type="MarginContainer" parent="LoginPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Border" type="NinePatchRect" parent="LoginPanel/BorderMargin"]
+layout_mode = 2
+texture = ExtResource("2_ekgh6")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
