@@ -44,9 +44,9 @@ fit_content = true
 [node name="HDIV" type="HBoxContainer" parent="MarginContainer/VDIV"]
 layout_mode = 2
 theme_override_constants/separation = 16
-alignment = 1
+alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VDIV/HDIV"]
+[node name="UsernameLabel" type="Label" parent="MarginContainer/VDIV/HDIV"]
 layout_mode = 2
 text = "Username"
 
@@ -65,9 +65,9 @@ caret_blink = true
 [node name="HDIV2" type="HBoxContainer" parent="MarginContainer/VDIV"]
 layout_mode = 2
 theme_override_constants/separation = 16
-alignment = 1
+alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VDIV/HDIV2"]
+[node name="PasswordLabel" type="Label" parent="MarginContainer/VDIV/HDIV2"]
 layout_mode = 2
 text = "Password"
 
@@ -83,6 +83,40 @@ middle_mouse_paste_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 secret = true
+
+[node name="VDIV" type="VBoxContainer" parent="MarginContainer/VDIV"]
+layout_mode = 2
+
+[node name="HDIV3" type="HBoxContainer" parent="MarginContainer/VDIV/VDIV"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="EmailLabel" type="Label" parent="MarginContainer/VDIV/VDIV/HDIV3"]
+layout_mode = 2
+text = "Email
+"
+
+[node name="EmailBox" type="LineEdit" parent="MarginContainer/VDIV/VDIV/HDIV3"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+max_length = 14
+context_menu_enabled = false
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+secret = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VDIV/VDIV"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.556863, 0.470588, 0.313726, 1)
+theme_override_font_sizes/italics_font_size = 12
+bbcode_enabled = true
+text = "[right][i]This information is saved strictly for the purposes of account management, nothing else."
+fit_content = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VDIV"]
 layout_mode = 2
