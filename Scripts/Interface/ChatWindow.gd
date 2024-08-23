@@ -13,11 +13,10 @@ func _on_text_input_line_text_changed(new_text):
 
 func _on_text_input_line_focus_entered():
 	UserInterface.chat_input_active = true
-	pass
 
 func _on_text_input_line_focus_exited():
+	clear_text_input()
 	UserInterface.chat_input_active = false
-	pass
 
 func _on_text_input_line_text_submitted(new_text):
 	pass # Replace with function body.
@@ -25,10 +24,14 @@ func _on_text_input_line_text_submitted(new_text):
 func clear_text_input():
 	text_input_line.clear()
 
+func unfocus_chat_input():
+	pass
+
 #@rpc ("any_peer", "call_local")
 func send_chat_message():
-	Server.send_chat_event(message)
-	clear_text_input()
+	if !message == "":
+		Server.send_chat_event(message)
+		text_input_line.clear()
 
 func receive_chat_message(new_message):
 	chat_log.text += new_message
